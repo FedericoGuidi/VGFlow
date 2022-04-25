@@ -13,6 +13,7 @@ class ProfileHeaderCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     
     public func configure(with profile: Profile) {
+        nameLabel.font = FontKit.roundedFont(ofSize: 24, weight: .semibold)
         nameLabel.text = profile.name
         descriptionLabel.text = profile.description
     }

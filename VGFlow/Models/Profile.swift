@@ -11,6 +11,9 @@ struct Profile: Codable {
     var name: String
     var description: String
     var social: [Social]?
+    var backlog: Backlog?
+    var nowPlaying: [VideoGameCard]?
+    var favorites: [VideoGameCard]?
     
     enum CodingKeys: String, CodingKey {
         case name

@@ -16,6 +16,7 @@ class SocialContactCollectionViewCell: UICollectionViewCell {
     
     func configure(with social: Social) {
         infoLabel.text = social.value
+        infoLabel.textColor = .white
         
         var backgroundConfiguration = UIBackgroundConfiguration.clear()
         backgroundConfiguration.cornerRadius = 25

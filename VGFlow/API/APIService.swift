@@ -6,12 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct LoginRequest: APIRequest {
     typealias Response = BearerToken
     
     var authCode: String?
-    
     var path: String { "/login" }
     
     var queryItems: [URLQueryItem]? {
@@ -35,5 +35,15 @@ struct ProfileRequest: APIRequest {
         } else {
             return [URLQueryItem(name: "id", value: KeychainItem.currentUserIdentifier)]
         }
+    }
+}
+
+struct ImageRequest: APIRequest {
+    typealias Response = UIImage
+    
+    var path: String
+    
+    var request: URLRequest {
+        return URLRequest(url: URL(string: path)!)
     }
 }
