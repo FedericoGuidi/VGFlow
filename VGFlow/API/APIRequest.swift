@@ -64,6 +64,7 @@ extension APIRequest where Response: Decodable {
         }
         
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
         let decoded = try decoder.decode(Response.self, from: data)
         
         return decoded

@@ -8,9 +8,15 @@
 import Foundation
 
 struct Backlog: Codable {
-    var numberOfGames: Int
+    var totalGames: Int
     var mostPlayedGenre: String
     var playtimeHours: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case totalGames
+        case playtimeHours = "totalHours"
+        case mostPlayedGenre
+    }
 }
 
 extension Backlog: Hashable { }

@@ -19,11 +19,16 @@ class VideoGameDetailViewController: UIViewController {
     
     @IBOutlet var videoGameNameLabel: UILabel!
     @IBOutlet var coverArtImageView: UIImageView!
+    @IBOutlet var videoGameDetailsLabel: UILabel!
+    @IBOutlet var videoGameSummaryLabel: UILabel!
+    @IBOutlet var contentView: UIView!
+    @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
     
-    var videogame: VideoGameCard!
+    var videogameCard: VideoGameCard!
+    var videogame: VideoGame?
     
     init?(coder: NSCoder, videogame: VideoGameCard) {
-        self.videogame = videogame
+        self.videogameCard = videogame
         super.init(coder: coder)
     }
     
@@ -38,12 +43,26 @@ class VideoGameDetailViewController: UIViewController {
     
     func setupView() {
         videoGameNameLabel.font = FontKit.roundedFont(ofSize: 28, weight: .heavy)
-        videoGameNameLabel.text = videogame.name
+        videoGameNameLabel.text = videogameCard.name
         
         coverArtImageView.layer.cornerRadius = 20
         
+        videoGameDetailRequestTask = Task {
+            do {
+                let videogame = try await VideoGameRequest(id: videogameCard.id).send()
+                    updateDetails(with: videogame)
+                
+            } catch {
+                print(error)
+            }
+            
+            videoGameDetailRequestTask = nil
+        }
+    }
+
+    func updateDetails(with videogame: VideoGame) {
         imageRequestTask = Task {
-            if let url = videogame.coverURL,
+            if let url = videogame.cover?.imageURL,
                 let image = try? await ImageRequest(path: url).send() {
                 if image.size.width > image.size.height {
                     self.coverArtImageView.contentMode = .scaleAspectFit
@@ -52,8 +71,29 @@ class VideoGameDetailViewController: UIViewController {
             }
             imageRequestTask = nil
         }
+        
+        var company: String = ""
+        if let publisherAndDeveloper = videogame.involvedCompanies.first(where: { $0.developer && $0.publisher })?.company.name {
+            company = publisherAndDeveloper
+        } else if let developer = videogame.involvedCompanies.first(where: { $0.developer })?.company.name {
+            company = developer
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let yearString = dateFormatter.string(from: videogame.releaseDate)
+        videoGameDetailsLabel.text = [company, yearString].joined(separator: " • ")
+        
+        videoGameSummaryLabel.text = videogame.summary
+        contentView.setNeedsLayout()
+        contentView.layoutIfNeeded()
+        
+        let height = contentView.subviews.map { $0.bounds.size.height }.reduce(100, +)
+        
+        contentViewHeightConstraint.constant = height
+        contentView.setNeedsLayout()
+        contentView.layoutIfNeeded()
     }
-
     /*
     // MARK: - Navigation
 

@@ -18,6 +18,9 @@ struct Profile: Codable {
     enum CodingKeys: String, CodingKey {
         case name
         case description
+        case backlog
+        case nowPlaying
+        case favorites
     }
 }
 

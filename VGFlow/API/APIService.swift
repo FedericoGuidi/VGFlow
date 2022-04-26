@@ -27,7 +27,7 @@ struct ProfileRequest: APIRequest {
     typealias Response = Profile
     
     var id: String?
-    var path: String { "/user" }
+    var path: String { "/profile" }
     
     var queryItems: [URLQueryItem]? {
         if let id = id {
@@ -45,5 +45,27 @@ struct ImageRequest: APIRequest {
     
     var request: URLRequest {
         return URLRequest(url: URL(string: path)!)
+    }
+}
+
+struct VideoGameRequest: APIRequest {
+    typealias Response = VideoGame
+    
+    var id: Int
+    var path: String { "/videogames/\(id)" }
+}
+
+struct SearchVideoGameRequest: APIRequest {
+    typealias Response = [VideoGameSearch]
+    
+    var path: String { "/videogames/search"}
+    var query: String?
+    
+    var queryItems: [URLQueryItem]? {
+        if let query = query {
+            return [URLQueryItem(name: "search", value: query)]
+        } else {
+            return nil
+        }
     }
 }

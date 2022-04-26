@@ -28,7 +28,7 @@ class MyBacklogCollectionViewCell: UICollectionViewCell {
         numberOfGamesLabel.textColor = .white
         numberOfGamesValueLabel.textColor = .white
         
-        numberOfGamesValueLabel.text = String(backlog.numberOfGames)
+        numberOfGamesValueLabel.text = String(backlog.totalGames)
         mostPlayedValueLabel.text = backlog.mostPlayedGenre
         playtimeValueLabel.text = "\(backlog.playtimeHours) ore"
         

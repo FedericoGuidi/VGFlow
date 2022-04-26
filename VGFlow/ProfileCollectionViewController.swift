@@ -67,7 +67,7 @@ class ProfileCollectionViewController: UICollectionViewController {
                 self.model.profile?.social = [Social(type: .nintendoSwitch, value: "1234-5678-9101"),
                                               Social(type: .xbox, value: "Fedrive"),
                                               Social(type: .playstation, value: "Fedrive")]
-                self.model.profile?.backlog = Backlog(numberOfGames: 496, mostPlayedGenre: "RPG/Action", playtimeHours: 1543)
+                /*self.model.profile?.backlog = Backlog(numberOfGames: 496, mostPlayedGenre: "RPG/Action", playtimeHours: 1543)
                 self.model.profile?.nowPlaying = [
                     VideoGameCard(id: 172427, name: "Kirby and the Forgotten Land", coverURL: "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co3vlw.png"),
                     VideoGameCard(id: 119133, name: "Elden Ring", coverURL: "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co4jni.png"),
@@ -78,7 +78,7 @@ class ProfileCollectionViewController: UICollectionViewController {
                 self.model.profile?.favorites = [VideoGameCard(id: 7346, name: "The Legend of Zelda: Breath of the Wild", coverURL: "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co3p2d.png"),
                                                  VideoGameCard(id: 1078, name: "Super Mario Galaxy 2", coverURL: "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co21tl.png"),
                                                  VideoGameCard(id: 1520, name: "Pokémon SoulSilver", coverURL: "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co1z59.png"),
-                                                 VideoGameCard(id: 109462, name: "Animal Crossing: New Horizons", coverURL: "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co3wls.png")]
+                                                 VideoGameCard(id: 109462, name: "Animal Crossing: New Horizons", coverURL: "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co3wls.png")]*/
             }
             self.updateCollectionView()
             
