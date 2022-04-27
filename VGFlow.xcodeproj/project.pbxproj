@@ -36,8 +36,10 @@
 		DF23BFB1281696D1006CF405 /* VideoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFB0281696D1006CF405 /* VideoGame.swift */; };
 		DF23BFB32818188A006CF405 /* TrendingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFB228181887006CF405 /* TrendingCollectionViewController.swift */; };
 		DF23BFB52818633E006CF405 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFB42818633D006CF405 /* SearchResultsTableViewController.swift */; };
-		DF23BFB728189359006CF405 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFB628189358006CF405 /* SearchResultsTableViewCell.swift */; };
 		DF23BFB928189C52006CF405 /* VideoGameSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFB828189C52006CF405 /* VideoGameSearch.swift */; };
+		DF23BFBC2819398D006CF405 /* VideoGameSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFBA2819398C006CF405 /* VideoGameSearchTableViewCell.swift */; };
+		DF23BFBF281982AD006CF405 /* PlatformCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFBE281982AB006CF405 /* PlatformCollectionViewCell.swift */; };
+		DF23BFC128199358006CF405 /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFC028199357006CF405 /* LeftAlignedFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,8 +75,10 @@
 		DF23BFB0281696D1006CF405 /* VideoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGame.swift; sourceTree = "<group>"; };
 		DF23BFB228181887006CF405 /* TrendingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewController.swift; sourceTree = "<group>"; };
 		DF23BFB42818633D006CF405 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
-		DF23BFB628189358006CF405 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		DF23BFB828189C52006CF405 /* VideoGameSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameSearch.swift; sourceTree = "<group>"; };
+		DF23BFBA2819398C006CF405 /* VideoGameSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameSearchTableViewCell.swift; sourceTree = "<group>"; };
+		DF23BFBE281982AB006CF405 /* PlatformCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCollectionViewCell.swift; sourceTree = "<group>"; };
+		DF23BFC028199357006CF405 /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 				DF23BFA82815BD09006CF405 /* SupplementaryItem.swift */,
 				DF23BF9728142CD0006CF405 /* UICollectionViewDiffableDataSource+ViewModel.swift */,
 				DF23BFAE28168E4F006CF405 /* FontKit.swift */,
+				DF23BFC028199357006CF405 /* LeftAlignedFlowLayout.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -171,7 +176,8 @@
 				DF23BFA22815705F006CF405 /* VideoGameCollectionViewCell.swift */,
 				DF23BFA428157132006CF405 /* IconSectionCollectionReusableView.swift */,
 				DF23BFAA2815BD51006CF405 /* SectionCollectionReusableView.swift */,
-				DF23BFB628189358006CF405 /* SearchResultsTableViewCell.swift */,
+				DF23BFBA2819398C006CF405 /* VideoGameSearchTableViewCell.swift */,
+				DF23BFBE281982AB006CF405 /* PlatformCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -262,17 +268,19 @@
 				DF23BF9F28154116006CF405 /* MyBacklogCollectionViewCell.swift in Sources */,
 				DF1EC29B280B36BF00829004 /* SceneDelegate.swift in Sources */,
 				DF23BF11280F3E54006CF405 /* Profile.swift in Sources */,
-				DF23BFB728189359006CF405 /* SearchResultsTableViewCell.swift in Sources */,
 				DF23BFA92815BD09006CF405 /* SupplementaryItem.swift in Sources */,
 				DF23BFAD2815E226006CF405 /* VideoGameDetailViewController.swift in Sources */,
 				DF23BFA728157310006CF405 /* VideoGameCard.swift in Sources */,
 				DF23BFA528157132006CF405 /* IconSectionCollectionReusableView.swift in Sources */,
 				DF23BFAB2815BD51006CF405 /* SectionCollectionReusableView.swift in Sources */,
 				DF23BF3928116302006CF405 /* APIRequest.swift in Sources */,
+				DF23BFBF281982AD006CF405 /* PlatformCollectionViewCell.swift in Sources */,
 				DF23BFA1281541A3006CF405 /* Backlog.swift in Sources */,
 				DF23BFB52818633E006CF405 /* SearchResultsTableViewController.swift in Sources */,
 				DF23BF9228141BDE006CF405 /* APIService.swift in Sources */,
+				DF23BFC128199358006CF405 /* LeftAlignedFlowLayout.swift in Sources */,
 				DF23BF9628142908006CF405 /* ProfileHeaderCollectionViewCell.swift in Sources */,
+				DF23BFBC2819398D006CF405 /* VideoGameSearchTableViewCell.swift in Sources */,
 				DF23BFB1281696D1006CF405 /* VideoGame.swift in Sources */,
 				DF23BFB928189C52006CF405 /* VideoGameSearch.swift in Sources */,
 				DF23BFA32815705F006CF405 /* VideoGameCollectionViewCell.swift in Sources */,

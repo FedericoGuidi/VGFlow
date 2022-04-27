@@ -33,6 +33,8 @@ struct Cover: Codable {
     }
 }
 
+extension Cover: Hashable { }
+
 struct InvolvedCompany: Codable {
     var company: Company
     var developer: Bool
@@ -44,3 +46,16 @@ struct Company: Codable {
     var id: Int
     var name: String
 }
+
+struct Platform: Codable {
+    var id: Int
+    //var name: String
+    var abbreviation: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case abbreviation
+    }
+}
+
+extension Platform: Hashable { }

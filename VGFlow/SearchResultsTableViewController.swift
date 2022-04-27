@@ -13,9 +13,10 @@ class SearchResultsTableViewController: UITableViewController {
     
     var filteredVideogames = [VideoGameSearch]()
     
+    var imageLoadTasks: [IndexPath: Task<Void, Never>] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.contentInset = UIEdgeInsets(top: 30, left: 0,bottom: 0,right: 0)
     }
 
     // MARK: - Table view data source
@@ -31,16 +32,44 @@ class SearchResultsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier, for: indexPath) as! SearchResultsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier, for: indexPath) as! VideoGameSearchTableViewCell
         let videogame = filteredVideogames[indexPath.row]
         
         cell.videoGameId = videogame.id
         cell.videogameNameLabel.text = videogame.name
-
+        cell.coverView.image = nil
+        cell.updateCellWith(platforms: videogame.platforms?.filter { !$0.abbreviation.isEmpty})
+        
+        imageLoadTasks[indexPath] = Task {
+            do {
+                if let url = videogame.cover?.imageURL {
+                    let image = try await ImageRequest(path: url).send()
+                    if image.size.width >= image.size.height {
+                        cell.coverView.contentMode = .scaleAspectFit
+                    } else {
+                        cell.coverView.contentMode = .scaleAspectFill
+                    }
+                    cell.coverView.image = image
+                }
+            } catch {
+                print(error)
+            }
+            imageLoadTasks[indexPath] = nil
+        }
+        
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        imageLoadTasks[indexPath]?.cancel()
+    }
+    
     @IBSegueAction func showVideoGameDetail(_ coder: NSCoder, sender: Any?) -> VideoGameDetailViewController? {
-        guard let cell = sender as? SearchResultsTableViewCell,
+        guard let cell = sender as? VideoGameSearchTableViewCell,
               let indexPath = tableView.indexPath(for: cell) else {
             return nil
         }

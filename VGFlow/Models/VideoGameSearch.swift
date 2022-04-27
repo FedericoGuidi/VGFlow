@@ -10,10 +10,14 @@ import Foundation
 struct VideoGameSearch: Codable {
     var id: Int
     var name: String
+    var cover: Cover?
+    var platforms: [Platform]?
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case cover
+        case platforms
     }
 }
 
