@@ -13,7 +13,7 @@ struct VideoGame: Codable {
     var cover: Cover?
     var releaseDate: Date
     var summary: String
-    var involvedCompanies: [InvolvedCompany]
+    var involvedCompanies: [InvolvedCompany]?
     
     enum CodingKeys: String, CodingKey {
         case id

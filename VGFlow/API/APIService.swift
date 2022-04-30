@@ -69,3 +69,20 @@ struct SearchVideoGameRequest: APIRequest {
         }
     }
 }
+
+struct VideoGameDetailsRequest: APIRequest {
+    typealias Response = VideoGameDetails
+    
+    var path: String { "/videogamedetails" }
+    var videogameId: Int?
+    
+    var queryItems: [URLQueryItem]? {
+        if let videogameId = videogameId {
+            return [URLQueryItem(name: "vid", value: String(videogameId)),
+                    //URLQueryItem(name: "uid", value: KeychainItem.currentUserIdentifier)]
+                    URLQueryItem(name: "uid", value: "001309.bca6a7cae40c4815995d19522fdde5a0.1537")]
+        } else {
+            return nil
+        }
+    }
+}

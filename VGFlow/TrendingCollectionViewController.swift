@@ -47,6 +47,10 @@ class TrendingViewController: UIViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
     }
+    
+    @IBAction func modalDismissed(segue: UIStoryboardSegue) {
+        
+    }
 }
 
 extension TrendingViewController: UITableViewDelegate {

@@ -31,6 +31,7 @@ class VideoGameSearchTableViewCell: UITableViewCell {
         // Comment if you set Datasource and delegate in .xib
         self.platformsCollectionView.dataSource = self
         self.platformsCollectionView.delegate = self
+        self.platformsCollectionView.backgroundView = nil
         self.platformsCollectionView.backgroundColor = nil
     }
 

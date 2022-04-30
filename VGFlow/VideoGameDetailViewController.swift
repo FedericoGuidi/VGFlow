@@ -11,10 +11,12 @@ class VideoGameDetailViewController: UIViewController {
 
     var imageRequestTask: Task<Void, Never>? = nil
     var videoGameDetailRequestTask: Task<Void, Never>? = nil
+    var videoGameUserDetailsRequestTask: Task<Void, Never>? = nil
     
     deinit {
         imageRequestTask?.cancel()
         videoGameDetailRequestTask?.cancel()
+        videoGameUserDetailsRequestTask?.cancel()
     }
     
     @IBOutlet var videoGameNameLabel: UILabel!
@@ -23,6 +25,35 @@ class VideoGameDetailViewController: UIViewController {
     @IBOutlet var videoGameSummaryLabel: UILabel!
     @IBOutlet var contentView: UIView!
     @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var starRatingView: UIStarRatingView!
+    
+    @IBOutlet var heartButton: UIBarButtonItem!
+    @IBOutlet var editButton: UIBarButtonItem!
+    
+    // MARK: Game status labels
+    @IBOutlet var gameStatusStackView: UIStackView!
+    @IBOutlet var gameTimeStackView: UIStackView!
+    @IBOutlet var addToLibraryButton: UIButton!
+    
+    // MARK: GameRating button outlets
+    @IBOutlet var gameplayButton: GameRatingButton!
+    @IBOutlet var plotButton: GameRatingButton!
+    @IBOutlet var musicButton: GameRatingButton!
+    @IBOutlet var graphicsButton: GameRatingButton!
+    @IBOutlet var levelDesignButton: GameRatingButton!
+    @IBOutlet var longevityButton: GameRatingButton!
+    @IBOutlet var iaButton: GameRatingButton!
+    @IBOutlet var physicsButton: GameRatingButton!
+    
+    // MARK: GameRating label outlets
+    @IBOutlet var gameplayLabel: UILabel!
+    @IBOutlet var plotLabel: UILabel!
+    @IBOutlet var musicLabel: UILabel!
+    @IBOutlet var graphicsLabel: UILabel!
+    @IBOutlet var levelDesignLabel: UILabel!
+    @IBOutlet var longevityLabel: UILabel!
+    @IBOutlet var iaLabel: UILabel!
+    @IBOutlet var physicsLabel: UILabel!
     
     var videogameCard: VideoGameCard!
     var videogame: VideoGame?
@@ -42,10 +73,18 @@ class VideoGameDetailViewController: UIViewController {
     }
     
     func setupView() {
+        gameStatusStackView.isHidden = true
+        gameTimeStackView.isHidden = true
+        addToLibraryButton.isHidden = true
+        navigationItem.rightBarButtonItems = nil
+        
         videoGameNameLabel.font = FontKit.roundedFont(ofSize: 28, weight: .heavy)
         videoGameNameLabel.text = videogameCard.name
         
         coverArtImageView.layer.cornerRadius = 20
+        
+        gameStatusStackView.layer.cornerRadius = gameStatusStackView.bounds.height / 2
+        gameTimeStackView.layer.cornerRadius = gameTimeStackView.bounds.height / 2
         
         videoGameDetailRequestTask = Task {
             do {
@@ -72,10 +111,17 @@ class VideoGameDetailViewController: UIViewController {
             imageRequestTask = nil
         }
         
+        videoGameUserDetailsRequestTask = Task {
+            if let details = try? await VideoGameDetailsRequest(videogameId: videogame.id).send() {
+                updateRatingsDetails(with: details)
+            }
+            videoGameUserDetailsRequestTask = nil
+        }
+        
         var company: String = ""
-        if let publisherAndDeveloper = videogame.involvedCompanies.first(where: { $0.developer && $0.publisher })?.company.name {
+        if let publisherAndDeveloper = videogame.involvedCompanies?.first(where: { $0.developer && $0.publisher })?.company.name {
             company = publisherAndDeveloper
-        } else if let developer = videogame.involvedCompanies.first(where: { $0.developer })?.company.name {
+        } else if let developer = videogame.involvedCompanies?.first(where: { $0.developer })?.company.name {
             company = developer
         }
         
@@ -88,12 +134,79 @@ class VideoGameDetailViewController: UIViewController {
         contentView.setNeedsLayout()
         contentView.layoutIfNeeded()
         
-        let height = contentView.subviews.map { $0.bounds.size.height }.reduce(100, +)
+        let height = contentView.subviews.map { $0.bounds.size.height }.reduce(140, +)
         
         contentViewHeightConstraint.constant = height
         contentView.setNeedsLayout()
         contentView.layoutIfNeeded()
     }
+    
+    private func updateRatingsDetails(with details: VideoGameDetails) {
+        if let status = details.status {
+            navigationItem.rightBarButtonItems = [editButton, heartButton]
+            
+            self.gameStatusStackView.isHidden = false
+            let image = self.gameStatusStackView.subviews[0] as! UIImageView
+            image.image = status.properties.0
+            gameStatusStackView.backgroundColor = status.properties.1
+            let label = self.gameStatusStackView.subviews[1] as! UILabel
+            label.text = "\(status.properties.2)"
+            
+            if let hours = details.hours {
+                self.gameTimeStackView.isHidden = false
+                let label = self.gameTimeStackView.subviews[1] as! UILabel
+                label.text = "Giocato per \(hours) ore"
+            }
+            
+            if let gameRating = details.gameRating {
+                if gameRating.gameplay > 0 { gameplayButton.active = true }
+                if gameRating.plot > 0 { plotButton.active = true }
+                if gameRating.music > 0 { musicButton.active = true }
+                if gameRating.graphics > 0 { graphicsButton.active = true }
+                if gameRating.levelDesign > 0 { levelDesignButton.active = true }
+                if gameRating.longevity > 0 { longevityButton.active = true }
+                if gameRating.ia > 0 { iaButton.active = true }
+                if gameRating.physics > 0 { physicsButton.active = true }
+            }
+        } else {
+            self.addToLibraryButton.isHidden = false
+        }
+        
+        if let rating = details.starRating {
+            self.starRatingView.starColor = .systemYellow
+            self.starRatingView.rating = rating
+        }
+       
+        gameplayLabel.text = PercentLabel(details.averageGameRating?.gameplay ?? 0)
+        plotLabel.text = PercentLabel(details.averageGameRating?.plot ?? 0)
+        musicLabel.text = PercentLabel(details.averageGameRating?.music ?? 0)
+        graphicsLabel.text = PercentLabel(details.averageGameRating?.graphics ?? 0)
+        levelDesignLabel.text = PercentLabel(details.averageGameRating?.levelDesign ?? 0)
+        longevityLabel.text = PercentLabel(details.averageGameRating?.longevity ?? 0)
+        iaLabel.text = PercentLabel(details.averageGameRating?.ia ?? 0)
+        physicsLabel.text = PercentLabel(details.averageGameRating?.physics ?? 0)
+    }
+    
+    private func PercentLabel(_ number: Float) -> String {
+        return String(Int(ceil(number * 100))) + "%"
+    }
+    
+    private func updateButtonStatusOn(_ button: UIButton) {
+        
+    }
+    
+    private func updateButtonStatusOff(_ button: UIButton) {
+        
+    }
+    
+    @IBAction func gameRatingButtonClicked(_ sender: GameRatingButton) {
+        if sender.isSelected {
+            updateButtonStatusOff(sender)
+        } else {
+            updateButtonStatusOn(sender)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

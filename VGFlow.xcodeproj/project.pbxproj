@@ -40,6 +40,11 @@
 		DF23BFBC2819398D006CF405 /* VideoGameSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFBA2819398C006CF405 /* VideoGameSearchTableViewCell.swift */; };
 		DF23BFBF281982AD006CF405 /* PlatformCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFBE281982AB006CF405 /* PlatformCollectionViewCell.swift */; };
 		DF23BFC128199358006CF405 /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFC028199357006CF405 /* LeftAlignedFlowLayout.swift */; };
+		DF4F9DDD281AC5FE00F7C95C /* StarRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F9DDC281AC5FE00F7C95C /* StarRatingController.swift */; };
+		DF4F9DDF281AC69F00F7C95C /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F9DDE281AC69F00F7C95C /* StarRatingStackView.swift */; };
+		DF4F9DE1281AC6C800F7C95C /* StarRatingStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4F9DE0281AC6C700F7C95C /* StarRatingStackView.xib */; };
+		DF4F9DE3281AD6A800F7C95C /* VideoGameDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F9DE2281AD6A800F7C95C /* VideoGameDetails.swift */; };
+		DF4F9DE5281D5B3300F7C95C /* GameRatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F9DE4281D5B3300F7C95C /* GameRatingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +84,11 @@
 		DF23BFBA2819398C006CF405 /* VideoGameSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameSearchTableViewCell.swift; sourceTree = "<group>"; };
 		DF23BFBE281982AB006CF405 /* PlatformCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF23BFC028199357006CF405 /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
+		DF4F9DDC281AC5FE00F7C95C /* StarRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingController.swift; sourceTree = "<group>"; };
+		DF4F9DDE281AC69F00F7C95C /* StarRatingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
+		DF4F9DE0281AC6C700F7C95C /* StarRatingStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarRatingStackView.xib; sourceTree = "<group>"; };
+		DF4F9DE2281AD6A800F7C95C /* VideoGameDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameDetails.swift; sourceTree = "<group>"; };
+		DF4F9DE4281D5B3300F7C95C /* GameRatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRatingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +137,7 @@
 				DF23BF412811797C006CF405 /* Models */,
 				DF23BF3E281165C4006CF405 /* API */,
 				DF23BF9B281440C3006CF405 /* Cells */,
+				DF4F9DDB281AC57C00F7C95C /* StarRatingView */,
 			);
 			path = VGFlow;
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 				DF23BFA0281541A3006CF405 /* Backlog.swift */,
 				DF23BFB0281696D1006CF405 /* VideoGame.swift */,
 				DF23BFA628157310006CF405 /* VideoGameCard.swift */,
+				DF4F9DE2281AD6A800F7C95C /* VideoGameDetails.swift */,
 				DF23BFB828189C52006CF405 /* VideoGameSearch.swift */,
 			);
 			path = Models;
@@ -163,6 +175,7 @@
 				DF23BF9728142CD0006CF405 /* UICollectionViewDiffableDataSource+ViewModel.swift */,
 				DF23BFAE28168E4F006CF405 /* FontKit.swift */,
 				DF23BFC028199357006CF405 /* LeftAlignedFlowLayout.swift */,
+				DF4F9DE4281D5B3300F7C95C /* GameRatingButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -180,6 +193,16 @@
 				DF23BFBE281982AB006CF405 /* PlatformCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DF4F9DDB281AC57C00F7C95C /* StarRatingView */ = {
+			isa = PBXGroup;
+			children = (
+				DF4F9DDC281AC5FE00F7C95C /* StarRatingController.swift */,
+				DF4F9DDE281AC69F00F7C95C /* StarRatingStackView.swift */,
+				DF4F9DE0281AC6C700F7C95C /* StarRatingStackView.xib */,
+			);
+			path = StarRatingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +269,7 @@
 			files = (
 				DF1EC2A5280B36C300829004 /* LaunchScreen.storyboard in Resources */,
 				DF1EC2A2280B36C300829004 /* Assets.xcassets in Resources */,
+				DF4F9DE1281AC6C800F7C95C /* StarRatingStackView.xib in Resources */,
 				DF1EC2A0280B36BF00829004 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +285,7 @@
 				DF23BF942814248C006CF405 /* ProfileCollectionViewController.swift in Sources */,
 				DF1EC2AD280C1DA000829004 /* LoginViewController.swift in Sources */,
 				DF23BF4028116C4D006CF405 /* KeychainItem.swift in Sources */,
+				DF4F9DDF281AC69F00F7C95C /* StarRatingStackView.swift in Sources */,
 				DF1EC29D280B36BF00829004 /* ViewController.swift in Sources */,
 				DF1EC299280B36BF00829004 /* AppDelegate.swift in Sources */,
 				DF23BFB32818188A006CF405 /* TrendingCollectionViewController.swift in Sources */,
@@ -278,8 +303,10 @@
 				DF23BFA1281541A3006CF405 /* Backlog.swift in Sources */,
 				DF23BFB52818633E006CF405 /* SearchResultsTableViewController.swift in Sources */,
 				DF23BF9228141BDE006CF405 /* APIService.swift in Sources */,
+				DF4F9DE3281AD6A800F7C95C /* VideoGameDetails.swift in Sources */,
 				DF23BFC128199358006CF405 /* LeftAlignedFlowLayout.swift in Sources */,
 				DF23BF9628142908006CF405 /* ProfileHeaderCollectionViewCell.swift in Sources */,
+				DF4F9DE5281D5B3300F7C95C /* GameRatingButton.swift in Sources */,
 				DF23BFBC2819398D006CF405 /* VideoGameSearchTableViewCell.swift in Sources */,
 				DF23BFB1281696D1006CF405 /* VideoGame.swift in Sources */,
 				DF23BFB928189C52006CF405 /* VideoGameSearch.swift in Sources */,
@@ -287,6 +314,7 @@
 				DF23BF0B280F3CFB006CF405 /* BearerToken.swift in Sources */,
 				DF23BF9A28143E9E006CF405 /* Social.swift in Sources */,
 				DF23BFAF28168E50006CF405 /* FontKit.swift in Sources */,
+				DF4F9DDD281AC5FE00F7C95C /* StarRatingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
