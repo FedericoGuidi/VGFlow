@@ -562,8 +562,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-t6-Smm">
                                                 <rect key="frame" x="20" y="286" width="374" height="453"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OQ1-a2-kSA" userLabel="Stato gioco">
-                                                        <rect key="frame" x="74" y="0.0" width="226" height="25"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OQ1-a2-kSA" userLabel="Stato gioco">
+                                                        <rect key="frame" x="76.5" y="0.0" width="221" height="25"/>
                                                         <subviews>
                                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="0Lf-Ke-tNu">
                                                                 <rect key="frame" x="0.0" y="0.0" width="67.5" height="25"/>
@@ -584,7 +584,7 @@
                                                                 <edgeInsets key="layoutMargins" top="4" left="5" bottom="4" right="6"/>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="JNb-wb-zum">
-                                                                <rect key="frame" x="82.5" y="0.0" width="143.5" height="25"/>
+                                                                <rect key="frame" x="77.5" y="0.0" width="143.5" height="25"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BX8-ql-ZmB">
                                                                         <rect key="frame" x="5" y="4.5" width="16" height="16"/>
@@ -975,7 +975,7 @@
                         <rightBarButtonItems>
                             <barButtonItem image="square.and.pencil" catalog="system" id="06Q-gu-40M">
                                 <connections>
-                                    <segue destination="CPZ-gu-Wsv" kind="show" id="0et-e0-ieu"/>
+                                    <segue destination="CPZ-gu-Wsv" kind="show" destinationCreationSelector="editVideoGameDetails:sender:" id="0et-e0-ieu"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="heart" catalog="system" id="VTu-FL-59y">
@@ -1020,21 +1020,190 @@
             </objects>
             <point key="canvasLocation" x="5485.507246376812" y="54.910714285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Edit Video Game View Controller-->
         <scene sceneID="Zfd-H3-kcu">
             <objects>
-                <viewController id="CPZ-gu-Wsv" sceneMemberID="viewController">
+                <viewController id="CPZ-gu-Wsv" customClass="AddEditVideoGameViewController" customModule="VGFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hdm-my-j95">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quante ore hai giocato?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-Tz-lGd">
+                                <rect key="frame" x="20" y="76" width="236" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ore..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ezn-G3-oZz">
+                                <rect key="frame" x="266" y="73" width="128" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A che punto sei?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gf8-nx-7Lc">
+                                <rect key="frame" x="20" y="122.5" width="164.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lbR-NA-96Z">
+                                <rect key="frame" x="20" y="169" width="374" height="130"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8wH-IC-1jh">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSh-rd-LAg" customClass="GameStatusRadioButton" customModule="VGFlow" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Non iniziato" subtitle="" imagePadding="10" buttonSize="small">
+                                                    <imageReference key="image" image="sparkles" catalog="system" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                                    <directionalEdgeInsets key="contentInsets" top="11" leading="0.0" bottom="10" trailing="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2df-UW-cl6" customClass="GameStatusRadioButton" customModule="VGFlow" customModuleProvider="target">
+                                                <rect key="frame" x="126.5" y="0.0" width="121" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Non finito" imagePadding="10" buttonSize="small">
+                                                    <imageReference key="image" image="pause.circle.fill" catalog="system" symbolScale="large"/>
+                                                    <directionalEdgeInsets key="contentInsets" top="11" leading="0.0" bottom="10" trailing="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eA-cH-q2X" customClass="GameStatusRadioButton" customModule="VGFlow" customModuleProvider="target">
+                                                <rect key="frame" x="252.5" y="0.0" width="121.5" height="60"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Finito" imagePadding="10" buttonSize="small">
+                                                    <imageReference key="image" image="checkmark.circle.fill" catalog="system" symbolScale="large"/>
+                                                    <directionalEdgeInsets key="contentInsets" top="11" leading="0.0" bottom="10" trailing="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mya-JL-tbV">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99z-Rc-xlY" customClass="GameStatusRadioButton" customModule="VGFlow" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="60"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="crown.fill" catalog="system" imagePlacement="top" title="Completato" imagePadding="10" buttonSize="small">
+                                                    <directionalEdgeInsets key="contentInsets" top="11" leading="0.0" bottom="10" trailing="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqI-nw-VbK" customClass="GameStatusRadioButton" customModule="VGFlow" customModuleProvider="target">
+                                                <rect key="frame" x="126.5" y="0.0" width="121" height="60"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="infinity.circle.fill" catalog="system" imagePlacement="top" title="Senza fine" imagePadding="10" buttonSize="small">
+                                                    <directionalEdgeInsets key="contentInsets" top="11" leading="0.0" bottom="10" trailing="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydY-9M-GPn" customClass="GameStatusRadioButton" customModule="VGFlow" customModuleProvider="target">
+                                                <rect key="frame" x="252.5" y="0.0" width="121.5" height="60"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system" imagePlacement="top" title="Abbandonato" imagePadding="10" buttonSize="small">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                                    <directionalEdgeInsets key="contentInsets" top="11" leading="0.0" bottom="10" trailing="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vP5-Vc-U6k">
+                                <rect key="frame" x="20" y="319" width="374" height="31"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="23K-yt-YTc">
+                                        <rect key="frame" x="0.0" y="0.5" width="31" height="30"/>
+                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="23K-yt-YTc" secondAttribute="height" multiplier="1:1" id="TPU-my-WYU"/>
+                                        </constraints>
+                                        <imageReference key="image" image="play.circle" catalog="system" symbolScale="default"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Playing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAi-d3-eYx">
+                                        <rect key="frame" x="36" y="0.0" width="284" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="M3S-9e-zrw">
+                                        <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VkS-wC-vZL">
+                                <rect key="frame" x="20" y="360" width="374" height="31"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hAS-IG-hn4">
+                                        <rect key="frame" x="0.0" y="1.5" width="31" height="28.5"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hAS-IG-hn4" secondAttribute="height" multiplier="1:1" id="eo2-Ax-3wl"/>
+                                        </constraints>
+                                        <imageReference key="image" image="heart.fill" catalog="system" symbolScale="default"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Aggiungi ai preferiti" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQ0-Mw-cLS">
+                                        <rect key="frame" x="36" y="0.0" width="284" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-8H-II9">
+                                        <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="my3-Ud-8mX">
+                                <rect key="frame" x="120" y="411" width="174.5" height="33.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Salva nella libreria" imagePadding="5">
+                                    <imageReference key="image" image="checkmark" catalog="system" symbolScale="medium"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zUd-Lm-WG3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gf8-nx-7Lc" firstAttribute="top" secondItem="ac6-Tz-lGd" secondAttribute="bottom" constant="20" id="2tK-FW-5Nh"/>
+                            <constraint firstItem="Ezn-G3-oZz" firstAttribute="top" secondItem="zUd-Lm-WG3" secondAttribute="top" constant="17" id="34s-Zb-M4Y"/>
+                            <constraint firstItem="my3-Ud-8mX" firstAttribute="centerX" secondItem="zUd-Lm-WG3" secondAttribute="centerX" id="6L9-xg-DBS"/>
+                            <constraint firstItem="lbR-NA-96Z" firstAttribute="top" secondItem="gf8-nx-7Lc" secondAttribute="bottom" constant="20" id="97T-iC-qHd"/>
+                            <constraint firstItem="ac6-Tz-lGd" firstAttribute="top" secondItem="zUd-Lm-WG3" secondAttribute="top" constant="20" id="Apt-07-0Kh"/>
+                            <constraint firstItem="lbR-NA-96Z" firstAttribute="leading" secondItem="zUd-Lm-WG3" secondAttribute="leading" constant="20" id="CdT-6S-X4C"/>
+                            <constraint firstItem="zUd-Lm-WG3" firstAttribute="trailing" secondItem="lbR-NA-96Z" secondAttribute="trailing" constant="20" id="G6V-t6-wtK"/>
+                            <constraint firstItem="zUd-Lm-WG3" firstAttribute="trailing" secondItem="VkS-wC-vZL" secondAttribute="trailing" constant="20" id="H0m-9E-w5m"/>
+                            <constraint firstItem="vP5-Vc-U6k" firstAttribute="leading" secondItem="zUd-Lm-WG3" secondAttribute="leading" constant="20" id="NX9-1s-9L5"/>
+                            <constraint firstItem="ac6-Tz-lGd" firstAttribute="leading" secondItem="zUd-Lm-WG3" secondAttribute="leading" constant="20" id="OND-A4-DC8"/>
+                            <constraint firstItem="zUd-Lm-WG3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gf8-nx-7Lc" secondAttribute="trailing" constant="20" id="Vyk-G9-4FN"/>
+                            <constraint firstItem="zUd-Lm-WG3" firstAttribute="trailing" secondItem="vP5-Vc-U6k" secondAttribute="trailing" constant="20" id="YUF-x2-T5L"/>
+                            <constraint firstItem="vP5-Vc-U6k" firstAttribute="top" secondItem="lbR-NA-96Z" secondAttribute="bottom" constant="20" id="f8K-Ls-ixQ"/>
+                            <constraint firstItem="zUd-Lm-WG3" firstAttribute="trailing" secondItem="Ezn-G3-oZz" secondAttribute="trailing" constant="20" id="l2o-ly-Lir"/>
+                            <constraint firstItem="gf8-nx-7Lc" firstAttribute="leading" secondItem="zUd-Lm-WG3" secondAttribute="leading" constant="20" id="ntO-VU-Y3N"/>
+                            <constraint firstItem="VkS-wC-vZL" firstAttribute="top" secondItem="vP5-Vc-U6k" secondAttribute="bottom" constant="10" id="nzh-g6-B5p"/>
+                            <constraint firstItem="my3-Ud-8mX" firstAttribute="top" secondItem="VkS-wC-vZL" secondAttribute="bottom" constant="20" id="vFI-2j-5gC"/>
+                            <constraint firstItem="VkS-wC-vZL" firstAttribute="leading" secondItem="zUd-Lm-WG3" secondAttribute="leading" constant="20" id="xRZ-Ss-UIW"/>
+                            <constraint firstItem="Ezn-G3-oZz" firstAttribute="leading" secondItem="ac6-Tz-lGd" secondAttribute="trailing" constant="10" id="xch-bz-4FQ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gxh-iC-BLU"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="gxh-iC-BLU"/>
+                    <connections>
+                        <outlet property="abandonedRadioButton" destination="ydY-9M-GPn" id="CxJ-1E-4TJ"/>
+                        <outlet property="completedRadioButton" destination="99z-Rc-xlY" id="4Gh-A0-Ku2"/>
+                        <outlet property="finishedRadioButton" destination="6eA-cH-q2X" id="h0S-yR-iLT"/>
+                        <outlet property="hoursTextField" destination="Ezn-G3-oZz" id="AIe-AX-FaY"/>
+                        <outlet property="notStartedRadioButton" destination="rSh-rd-LAg" id="pjh-b7-Q6T"/>
+                        <outlet property="nowPlayingLabel" destination="EAi-d3-eYx" id="T5u-4t-aKx"/>
+                        <outlet property="nowPlayingSwitch" destination="M3S-9e-zrw" id="OyR-rf-CTk"/>
+                        <outlet property="starredLabel" destination="yQ0-Mw-cLS" id="dED-9c-4nY"/>
+                        <outlet property="starredSwitch" destination="1eZ-8H-II9" id="kgc-ZE-cxh"/>
+                        <outlet property="unfinishedRadioButton" destination="2df-UW-cl6" id="wUd-O7-i7t"/>
+                        <outlet property="unlimitedRadioButton" destination="bqI-nw-VbK" id="yJk-du-0BE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pba-7d-AZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6341" y="56"/>
+            <point key="canvasLocation" x="6340.579710144928" y="55.580357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l80-FG-aD4">
@@ -1074,32 +1243,6 @@
             <point key="canvasLocation" x="1796" y="489"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="5Bi-Kg-BPc">
-            <size key="intrinsicContentSize" width="53" height="34"/>
-        </designable>
-        <designable name="Vp1-fV-mBi">
-            <size key="intrinsicContentSize" width="42.5" height="34"/>
-        </designable>
-        <designable name="Y0i-aP-9Fn">
-            <size key="intrinsicContentSize" width="60" height="34"/>
-        </designable>
-        <designable name="bYG-sJ-1fF">
-            <size key="intrinsicContentSize" width="53.5" height="34"/>
-        </designable>
-        <designable name="dWM-6M-ufd">
-            <size key="intrinsicContentSize" width="51" height="34"/>
-        </designable>
-        <designable name="emx-0u-uX0">
-            <size key="intrinsicContentSize" width="51.5" height="34"/>
-        </designable>
-        <designable name="qqn-hI-jPw">
-            <size key="intrinsicContentSize" width="51" height="34"/>
-        </designable>
-        <designable name="yBC-QZ-pV9">
-            <size key="intrinsicContentSize" width="53" height="34"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="uV5-Kx-ONW"/>
         <segue reference="0et-e0-ieu"/>
@@ -1107,11 +1250,14 @@
     <resources>
         <image name="atom" catalog="system" width="119" height="128"/>
         <image name="brain.head.profile" catalog="system" width="114" height="128"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="128"/>
         <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="clock.arrow.2.circlepath" catalog="system" width="128" height="103"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="crown.fill" catalog="system" width="128" height="92"/>
         <image name="cube.transparent" catalog="system" width="128" height="124"/>
         <image name="die.face.3.fill" catalog="system" width="128" height="114"/>
         <image name="dpad.up.filled" catalog="system" width="128" height="116"/>
@@ -1119,13 +1265,19 @@
         <image name="gamecontroller" catalog="system" width="128" height="80"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="infinity.circle.fill" catalog="system" width="128" height="121"/>
         <image name="logo.xbox" catalog="system" width="128" height="121"/>
         <image name="music.note" catalog="system" width="97" height="128"/>
         <image name="paintbrush.pointed.fill" catalog="system" width="128" height="119"/>
+        <image name="pause.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="play.circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="sparkles" catalog="system" width="112" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1134,6 +1286,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

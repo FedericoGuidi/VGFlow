@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF1B9F69281ED16300260C88 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F68281ED16300260C88 /* StarRating.swift */; };
+		DF1B9F6B281EEF6000260C88 /* GameStatusRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */; };
+		DF1B9F6D281EFC1D00260C88 /* AddEditVideoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */; };
+		DF1B9F6F28204C3E00260C88 /* UserGameRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6E28204C3E00260C88 /* UserGameRating.swift */; };
 		DF1EC299280B36BF00829004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1EC298280B36BF00829004 /* AppDelegate.swift */; };
 		DF1EC29B280B36BF00829004 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1EC29A280B36BF00829004 /* SceneDelegate.swift */; };
 		DF1EC29D280B36BF00829004 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1EC29C280B36BF00829004 /* ViewController.swift */; };
@@ -48,6 +52,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF1B9F68281ED16300260C88 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatusRadioButton.swift; sourceTree = "<group>"; };
+		DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditVideoGameViewController.swift; sourceTree = "<group>"; };
+		DF1B9F6E28204C3E00260C88 /* UserGameRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameRating.swift; sourceTree = "<group>"; };
 		DF1EC295280B36BF00829004 /* VGFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1EC298280B36BF00829004 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF1EC29A280B36BF00829004 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +141,7 @@
 				DF23BFB228181887006CF405 /* TrendingCollectionViewController.swift */,
 				DF23BFB42818633D006CF405 /* SearchResultsTableViewController.swift */,
 				DF23BFAC2815E226006CF405 /* VideoGameDetailViewController.swift */,
+				DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */,
 				DF23BF422811799C006CF405 /* Helpers */,
 				DF23BF412811797C006CF405 /* Models */,
 				DF23BF3E281165C4006CF405 /* API */,
@@ -162,6 +171,8 @@
 				DF23BFA628157310006CF405 /* VideoGameCard.swift */,
 				DF4F9DE2281AD6A800F7C95C /* VideoGameDetails.swift */,
 				DF23BFB828189C52006CF405 /* VideoGameSearch.swift */,
+				DF1B9F68281ED16300260C88 /* StarRating.swift */,
+				DF1B9F6E28204C3E00260C88 /* UserGameRating.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +187,7 @@
 				DF23BFAE28168E4F006CF405 /* FontKit.swift */,
 				DF23BFC028199357006CF405 /* LeftAlignedFlowLayout.swift */,
 				DF4F9DE4281D5B3300F7C95C /* GameRatingButton.swift */,
+				DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -291,10 +303,13 @@
 				DF23BFB32818188A006CF405 /* TrendingCollectionViewController.swift in Sources */,
 				DF23BF9828142CD0006CF405 /* UICollectionViewDiffableDataSource+ViewModel.swift in Sources */,
 				DF23BF9F28154116006CF405 /* MyBacklogCollectionViewCell.swift in Sources */,
+				DF1B9F6D281EFC1D00260C88 /* AddEditVideoGameViewController.swift in Sources */,
 				DF1EC29B280B36BF00829004 /* SceneDelegate.swift in Sources */,
 				DF23BF11280F3E54006CF405 /* Profile.swift in Sources */,
+				DF1B9F6B281EEF6000260C88 /* GameStatusRadioButton.swift in Sources */,
 				DF23BFA92815BD09006CF405 /* SupplementaryItem.swift in Sources */,
 				DF23BFAD2815E226006CF405 /* VideoGameDetailViewController.swift in Sources */,
+				DF1B9F69281ED16300260C88 /* StarRating.swift in Sources */,
 				DF23BFA728157310006CF405 /* VideoGameCard.swift in Sources */,
 				DF23BFA528157132006CF405 /* IconSectionCollectionReusableView.swift in Sources */,
 				DF23BFAB2815BD51006CF405 /* SectionCollectionReusableView.swift in Sources */,
@@ -309,6 +324,7 @@
 				DF4F9DE5281D5B3300F7C95C /* GameRatingButton.swift in Sources */,
 				DF23BFBC2819398D006CF405 /* VideoGameSearchTableViewCell.swift in Sources */,
 				DF23BFB1281696D1006CF405 /* VideoGame.swift in Sources */,
+				DF1B9F6F28204C3E00260C88 /* UserGameRating.swift in Sources */,
 				DF23BFB928189C52006CF405 /* VideoGameSearch.swift in Sources */,
 				DF23BFA32815705F006CF405 /* VideoGameCollectionViewCell.swift in Sources */,
 				DF23BF0B280F3CFB006CF405 /* BearerToken.swift in Sources */,

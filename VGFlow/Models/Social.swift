@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SocialType: Codable {
+enum SocialType: String, Codable {
     case nintendoSwitch
     case xbox
     case playstation

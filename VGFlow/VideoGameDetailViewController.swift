@@ -57,6 +57,7 @@ class VideoGameDetailViewController: UIViewController {
     
     var videogameCard: VideoGameCard!
     var videogame: VideoGame?
+    var videogameDetails: VideoGameDetails?
     
     init?(coder: NSCoder, videogame: VideoGameCard) {
         self.videogameCard = videogame
@@ -82,6 +83,7 @@ class VideoGameDetailViewController: UIViewController {
         videoGameNameLabel.text = videogameCard.name
         
         coverArtImageView.layer.cornerRadius = 20
+        starRatingView.videoGameId = videogameCard.id
         
         gameStatusStackView.layer.cornerRadius = gameStatusStackView.bounds.height / 2
         gameTimeStackView.layer.cornerRadius = gameTimeStackView.bounds.height / 2
@@ -113,6 +115,7 @@ class VideoGameDetailViewController: UIViewController {
         
         videoGameUserDetailsRequestTask = Task {
             if let details = try? await VideoGameDetailsRequest(videogameId: videogame.id).send() {
+                self.videogameDetails = details
                 updateRatingsDetails(with: details)
             }
             videoGameUserDetailsRequestTask = nil
@@ -133,16 +136,12 @@ class VideoGameDetailViewController: UIViewController {
         videoGameSummaryLabel.text = videogame.summary
         contentView.setNeedsLayout()
         contentView.layoutIfNeeded()
-        
-        let height = contentView.subviews.map { $0.bounds.size.height }.reduce(140, +)
-        
-        contentViewHeightConstraint.constant = height
-        contentView.setNeedsLayout()
-        contentView.layoutIfNeeded()
     }
     
     private func updateRatingsDetails(with details: VideoGameDetails) {
+        var startingPoint = 100.0
         if let status = details.status {
+            startingPoint = 70.0
             navigationItem.rightBarButtonItems = [editButton, heartButton]
             
             self.gameStatusStackView.isHidden = false
@@ -159,14 +158,14 @@ class VideoGameDetailViewController: UIViewController {
             }
             
             if let gameRating = details.gameRating {
-                if gameRating.gameplay > 0 { gameplayButton.active = true }
-                if gameRating.plot > 0 { plotButton.active = true }
-                if gameRating.music > 0 { musicButton.active = true }
-                if gameRating.graphics > 0 { graphicsButton.active = true }
-                if gameRating.levelDesign > 0 { levelDesignButton.active = true }
-                if gameRating.longevity > 0 { longevityButton.active = true }
-                if gameRating.ia > 0 { iaButton.active = true }
-                if gameRating.physics > 0 { physicsButton.active = true }
+                if gameRating.gameplay > 0 { gameplayButton.isSelected = true }
+                if gameRating.plot > 0 { plotButton.isSelected = true }
+                if gameRating.music > 0 { musicButton.isSelected = true }
+                if gameRating.graphics > 0 { graphicsButton.isSelected = true }
+                if gameRating.levelDesign > 0 { levelDesignButton.isSelected = true }
+                if gameRating.longevity > 0 { longevityButton.isSelected = true }
+                if gameRating.ia > 0 { iaButton.isSelected = true }
+                if gameRating.physics > 0 { physicsButton.isSelected = true }
             }
         } else {
             self.addToLibraryButton.isHidden = false
@@ -185,6 +184,12 @@ class VideoGameDetailViewController: UIViewController {
         longevityLabel.text = PercentLabel(details.averageGameRating?.longevity ?? 0)
         iaLabel.text = PercentLabel(details.averageGameRating?.ia ?? 0)
         physicsLabel.text = PercentLabel(details.averageGameRating?.physics ?? 0)
+        
+        let height = contentView.subviews.map { $0.bounds.size.height }.reduce(startingPoint, +)
+        
+        contentViewHeightConstraint.constant = height
+        contentView.setNeedsLayout()
+        contentView.layoutIfNeeded()
     }
     
     private func PercentLabel(_ number: Float) -> String {
@@ -205,6 +210,16 @@ class VideoGameDetailViewController: UIViewController {
         } else {
             updateButtonStatusOn(sender)
         }
+    }
+    
+    @IBSegueAction func editVideoGameDetails(_ coder: NSCoder, sender: Any?) -> AddEditVideoGameViewController? {
+        
+        let controller = AddEditVideoGameViewController(coder: coder)
+        
+        controller?.videoGame = videogame
+        controller?.videoGameDetails = videogameDetails
+        
+        return controller
     }
     
     /*

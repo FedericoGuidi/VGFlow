@@ -73,7 +73,7 @@ struct SearchVideoGameRequest: APIRequest {
 struct VideoGameDetailsRequest: APIRequest {
     typealias Response = VideoGameDetails
     
-    var path: String { "/videogamedetails" }
+    var path: String { "/videogame/details" }
     var videogameId: Int?
     
     var queryItems: [URLQueryItem]? {
@@ -84,5 +84,29 @@ struct VideoGameDetailsRequest: APIRequest {
         } else {
             return nil
         }
+    }
+}
+
+struct RateVideoGameByStarsRequest: APIRequest {
+    typealias Response = Void
+    
+    var path: String { "/videogame/ratebystars" }
+    var starRating: StarRating
+    
+    var postData: Data? {
+        let encoder = JSONEncoder()
+        return try! encoder.encode(starRating)
+    }
+}
+
+struct RateVideoGameByGameRatingRequest: APIRequest {
+    typealias Response = Void
+    
+    var path: String { "/videogame/ratebygamerating" }
+    var gameRating: UserGameRating
+    
+    var postData: Data? {
+        let encoder = JSONEncoder()
+        return try! encoder.encode(gameRating)
     }
 }

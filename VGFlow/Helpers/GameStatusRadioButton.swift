@@ -1,16 +1,35 @@
 //
-//  GameplayButton.swift
+//  GameStatusSegmentedControl.swift
 //  VGFlow
 //
-//  Created by Federico Guidi on 30/04/22.
+//  Created by Federico Guidi on 01/05/22.
 //
 
+import Foundation
 import UIKit
 
-class GameRatingButton: UIButton {
+class GameStatusRadioButton: UIButton {
+    var alternateButtons: [GameStatusRadioButton]?
+    var status: VideoGameStatus? {
+        didSet {
+            updateConfiguration()
+        }
+    }
+    
+    func unselectAlternateButtons() {
+        if alternateButtons != nil {
+            self.isSelected = true
+            
+            for aButton: GameStatusRadioButton in alternateButtons! {
+                aButton.isSelected = false
+            }
+        } else {
+            toggleButton()
+        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        toggleButton()
+        unselectAlternateButtons()
         super.touchesBegan(touches, with: event)
     }
     
@@ -19,7 +38,8 @@ class GameRatingButton: UIButton {
     }
     
     override func updateConfiguration() {
-        guard let configuration = configuration else {
+        guard let configuration = configuration,
+              let status = status else {
             return
         }
         
@@ -34,7 +54,7 @@ class GameRatingButton: UIButton {
         background.strokeWidth = 1
         
         // 4
-        //let strokeColor: UIColor = status.properties.1
+        let strokeColor: UIColor = status.properties.1
         let foregroundColor: UIColor
         let backgroundColor: UIColor
         let baseColor = updatedConfiguration.baseForegroundColor ?? UIColor.tintColor
@@ -42,19 +62,20 @@ class GameRatingButton: UIButton {
         // 1
         switch self.state {
         case .normal:
-            foregroundColor = .label
-            backgroundColor = .systemGray.withAlphaComponent(0.2)
+            foregroundColor = status.properties.1
+            backgroundColor = .clear
         case .selected, [.highlighted], [.selected, .highlighted]:
             foregroundColor = .white
-            backgroundColor = .systemIndigo
+            backgroundColor = status.properties.1
         case .disabled:
             foregroundColor = baseColor.withAlphaComponent(0.3)
             backgroundColor = .clear
         default:
-            foregroundColor = .label
-            backgroundColor = baseColor.withAlphaComponent(0.1)
+            foregroundColor = baseColor
+            backgroundColor = .clear
         }
         
+        background.strokeColor = strokeColor
         background.backgroundColor = backgroundColor
         
         updatedConfiguration.baseForegroundColor = foregroundColor
@@ -62,20 +83,4 @@ class GameRatingButton: UIButton {
         // 2
         self.configuration = updatedConfiguration
     }
-    
-    // Set the selected properties
-    /*func setSelected() {
-        let templateImage = imageView!.image?.withRenderingMode(.alwaysTemplate)
-        imageView!.image = templateImage
-        imageView!.tintColor = .white
-        self.backgroundColor = .systemIndigo
-    }
-    
-    // Set the deselcted properties
-    func setDeselected() {
-        let templateImage = imageView!.image?.withRenderingMode(.alwaysTemplate)
-        imageView!.image = templateImage
-        imageView!.tintColor = .label
-        self.backgroundColor = .lightGray.withAlphaComponent(0.2)
-    }*/
 }

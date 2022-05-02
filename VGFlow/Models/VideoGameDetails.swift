@@ -10,6 +10,8 @@ import UIKit
 struct VideoGameDetails: Codable {
     var hours: Int?
     var status: VideoGameStatus?
+    var nowPlaying: Bool
+    var starred: Bool
     var starRating: Float?
     var averageStarRating: Float?
     var gameRating: GameRating?
@@ -18,6 +20,8 @@ struct VideoGameDetails: Codable {
     enum CodingKeys: String, CodingKey {
         case hours
         case status
+        case nowPlaying
+        case starred
         case starRating
         case averageStarRating
         case gameRating
@@ -33,6 +37,7 @@ enum VideoGameStatus: String, Codable {
     case completed = "Completed"
     case unfinished = "Unfinished"
     case abandoned = "Abandoned"
+    case unlimited = "Unlimited"
 }
 
 extension VideoGameStatus {
@@ -44,6 +49,7 @@ extension VideoGameStatus {
         case .finished: return (UIImage(systemName: "checkmark.circle.fill")!, .systemGreen, "Finito")
         case .unfinished: return (UIImage(systemName: "pause.circle.fill")!, .systemTeal, "Non finito")
         case .abandoned: return (UIImage(systemName: "xmark.circle.fill")!, .systemRed, "Abbandonato")
+        case .unlimited: return (UIImage(systemName: "infinity.circle.fill")!, .systemIndigo, "Senza fine")
         }
     }
 }

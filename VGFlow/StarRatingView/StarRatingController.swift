@@ -19,6 +19,8 @@ public enum StarRounding: Int {
 @IBDesignable
 class UIStarRatingView: UIView {
     
+    var videoGameId: Int?
+    
     @IBInspectable var rating: Float = 0 {
         didSet {
             setStarsFor(rating: rating)
@@ -129,6 +131,7 @@ class UIStarRatingView: UIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {return}
         touched(touch: touch, moveTouch: false)
+        self.starColor = .systemYellow
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -155,12 +158,11 @@ class UIStarRatingView: UIView {
             roundedRatingFromTouch = Float(round(ratingFromTouch))
         }
         self.rating = roundedRatingFromTouch
+        
+        Task {
+            try? await RateVideoGameByStarsRequest(starRating: StarRating(user: "001309.bca6a7cae40c4815995d19522fdde5a0.1537", videogameId: self.videoGameId!, stars: self.rating)).send()
+        }
+        
         lastTouch = Date()
     }
-    
-    
-    
-
-
-
 }

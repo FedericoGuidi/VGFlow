@@ -64,9 +64,6 @@ class ProfileCollectionViewController: UICollectionViewController {
         profileRequestTask = Task {
             if let profile = try? await ProfileRequest(id: "001309.bca6a7cae40c4815995d19522fdde5a0.1537").send() {
                 self.model.profile = profile
-                self.model.profile?.social = [Social(type: .nintendoSwitch, value: "1234-5678-9101"),
-                                              Social(type: .xbox, value: "Fedrive"),
-                                              Social(type: .playstation, value: "Fedrive")]
             }
             self.updateCollectionView()
             
