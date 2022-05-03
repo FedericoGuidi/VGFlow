@@ -61,16 +61,6 @@ class ProfileCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileRequestTask = Task {
-            if let profile = try? await ProfileRequest(id: "001309.bca6a7cae40c4815995d19522fdde5a0.1537").send() {
-                self.model.profile = profile
-            }
-            self.updateCollectionView()
-            
-            profileRequestTask = nil
-        }
-        
-        
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
@@ -83,11 +73,19 @@ class ProfileCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        update()
+        updateProfile()
     }
     
-    func update() {
-        
+    func updateProfile() {
+        profileRequestTask?.cancel()
+        profileRequestTask = Task {
+            if let profile = try? await ProfileRequest(id: "001309.bca6a7cae40c4815995d19522fdde5a0.1537").send() {
+                self.model.profile = profile
+            }
+            self.updateCollectionView()
+            
+            profileRequestTask = nil
+        }
     }
     
     func updateCollectionView() {
@@ -224,7 +222,26 @@ class ProfileCollectionViewController: UICollectionViewController {
     }
     
     @IBAction func modalDismissed(segue: UIStoryboardSegue) {
+        guard segue.identifier == "addToBacklog" else { return }
+        let souceViewController = segue.source as! AddEditVideoGameViewController
         
+        if let backlogEntry = souceViewController.backlogEntry {
+            Task {
+                try? await BacklogEntryRequest(backlogEntry: backlogEntry).send()
+                updateProfile()
+            }
+            
+            //print(videogame)
+            /*if let indexOfExistingToDo = toDos.firstIndex(of: toDo) {
+                toDos[indexOfExistingToDo] = toDo
+                tableView.reloadRows(at: [IndexPath(row: indexOfExistingToDo, section: 0)], with: .automatic)
+            } else {
+                let newIndexPath = IndexPath(row: toDos.count, section: 0)
+                toDos.append(toDo)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }*/
+        }
+        //ToDo.saveToDos(toDos)
     }
     
     @IBSegueAction func showVideoGameDetail(_ coder: NSCoder, sender: VideoGameCollectionViewCell?) -> VideoGameDetailViewController? {

@@ -92,7 +92,7 @@ class VideoGameDetailViewController: UIViewController {
             do {
                 let videogame = try await VideoGameRequest(id: videogameCard.id).send()
                     updateDetails(with: videogame)
-                
+                self.videogame = videogame
             } catch {
                 print(error)
             }
@@ -212,7 +212,7 @@ class VideoGameDetailViewController: UIViewController {
         }
     }
     
-    @IBSegueAction func editVideoGameDetails(_ coder: NSCoder, sender: Any?) -> AddEditVideoGameViewController? {
+    @IBSegueAction func addEditVideoGameDetails(_ coder: NSCoder, sender: Any?) -> AddEditVideoGameViewController? {
         
         let controller = AddEditVideoGameViewController(coder: coder)
         
@@ -221,7 +221,7 @@ class VideoGameDetailViewController: UIViewController {
         
         return controller
     }
-    
+
     /*
     // MARK: - Navigation
 

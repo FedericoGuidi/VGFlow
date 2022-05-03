@@ -610,7 +610,7 @@
                                                             <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <segue destination="CPZ-gu-Wsv" kind="show" id="Ikm-TI-i1A"/>
+                                                            <segue destination="CPZ-gu-Wsv" kind="show" destinationCreationSelector="addEditVideoGameDetails:sender:" id="Ikm-TI-i1A"/>
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R0P-KA-4wj" userLabel="Dettagli">
@@ -975,7 +975,7 @@
                         <rightBarButtonItems>
                             <barButtonItem image="square.and.pencil" catalog="system" id="06Q-gu-40M">
                                 <connections>
-                                    <segue destination="CPZ-gu-Wsv" kind="show" destinationCreationSelector="editVideoGameDetails:sender:" id="0et-e0-ieu"/>
+                                    <segue destination="CPZ-gu-Wsv" kind="show" destinationCreationSelector="addEditVideoGameDetails:sender:" id="0et-e0-ieu"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="heart" catalog="system" id="VTu-FL-59y">
@@ -1154,11 +1154,23 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="my3-Ud-8mX">
-                                <rect key="frame" x="120" y="411" width="174.5" height="33.5"/>
+                                <rect key="frame" x="113" y="431" width="188" height="35.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Salva nella libreria" imagePadding="5">
                                     <imageReference key="image" image="checkmark" catalog="system" symbolScale="medium"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Nok-Dh-jkY" kind="unwind" identifier="addToBacklog" unwindAction="modalDismissedWithSegue:" id="rT8-6v-WEV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUj-Nw-jmb">
+                                <rect key="frame" x="113" y="481.5" width="188" height="33.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Elimina dalla libreria" imagePadding="5">
+                                    <imageReference key="image" image="trash" catalog="system" symbolScale="medium"/>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
@@ -1167,8 +1179,10 @@
                         <constraints>
                             <constraint firstItem="gf8-nx-7Lc" firstAttribute="top" secondItem="ac6-Tz-lGd" secondAttribute="bottom" constant="20" id="2tK-FW-5Nh"/>
                             <constraint firstItem="Ezn-G3-oZz" firstAttribute="top" secondItem="zUd-Lm-WG3" secondAttribute="top" constant="17" id="34s-Zb-M4Y"/>
+                            <constraint firstItem="OUj-Nw-jmb" firstAttribute="top" secondItem="my3-Ud-8mX" secondAttribute="bottom" constant="15" id="5ZK-vZ-dEB"/>
                             <constraint firstItem="my3-Ud-8mX" firstAttribute="centerX" secondItem="zUd-Lm-WG3" secondAttribute="centerX" id="6L9-xg-DBS"/>
                             <constraint firstItem="lbR-NA-96Z" firstAttribute="top" secondItem="gf8-nx-7Lc" secondAttribute="bottom" constant="20" id="97T-iC-qHd"/>
+                            <constraint firstItem="OUj-Nw-jmb" firstAttribute="width" secondItem="my3-Ud-8mX" secondAttribute="width" id="9Q1-un-qiR"/>
                             <constraint firstItem="ac6-Tz-lGd" firstAttribute="top" secondItem="zUd-Lm-WG3" secondAttribute="top" constant="20" id="Apt-07-0Kh"/>
                             <constraint firstItem="lbR-NA-96Z" firstAttribute="leading" secondItem="zUd-Lm-WG3" secondAttribute="leading" constant="20" id="CdT-6S-X4C"/>
                             <constraint firstItem="zUd-Lm-WG3" firstAttribute="trailing" secondItem="lbR-NA-96Z" secondAttribute="trailing" constant="20" id="G6V-t6-wtK"/>
@@ -1177,11 +1191,12 @@
                             <constraint firstItem="ac6-Tz-lGd" firstAttribute="leading" secondItem="zUd-Lm-WG3" secondAttribute="leading" constant="20" id="OND-A4-DC8"/>
                             <constraint firstItem="zUd-Lm-WG3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gf8-nx-7Lc" secondAttribute="trailing" constant="20" id="Vyk-G9-4FN"/>
                             <constraint firstItem="zUd-Lm-WG3" firstAttribute="trailing" secondItem="vP5-Vc-U6k" secondAttribute="trailing" constant="20" id="YUF-x2-T5L"/>
+                            <constraint firstItem="OUj-Nw-jmb" firstAttribute="centerX" secondItem="hdm-my-j95" secondAttribute="centerX" id="aAS-o7-pzR"/>
                             <constraint firstItem="vP5-Vc-U6k" firstAttribute="top" secondItem="lbR-NA-96Z" secondAttribute="bottom" constant="20" id="f8K-Ls-ixQ"/>
                             <constraint firstItem="zUd-Lm-WG3" firstAttribute="trailing" secondItem="Ezn-G3-oZz" secondAttribute="trailing" constant="20" id="l2o-ly-Lir"/>
                             <constraint firstItem="gf8-nx-7Lc" firstAttribute="leading" secondItem="zUd-Lm-WG3" secondAttribute="leading" constant="20" id="ntO-VU-Y3N"/>
                             <constraint firstItem="VkS-wC-vZL" firstAttribute="top" secondItem="vP5-Vc-U6k" secondAttribute="bottom" constant="10" id="nzh-g6-B5p"/>
-                            <constraint firstItem="my3-Ud-8mX" firstAttribute="top" secondItem="VkS-wC-vZL" secondAttribute="bottom" constant="20" id="vFI-2j-5gC"/>
+                            <constraint firstItem="my3-Ud-8mX" firstAttribute="top" secondItem="VkS-wC-vZL" secondAttribute="bottom" constant="40" id="vFI-2j-5gC"/>
                             <constraint firstItem="VkS-wC-vZL" firstAttribute="leading" secondItem="zUd-Lm-WG3" secondAttribute="leading" constant="20" id="xRZ-Ss-UIW"/>
                             <constraint firstItem="Ezn-G3-oZz" firstAttribute="leading" secondItem="ac6-Tz-lGd" secondAttribute="trailing" constant="10" id="xch-bz-4FQ"/>
                         </constraints>
@@ -1195,6 +1210,7 @@
                         <outlet property="notStartedRadioButton" destination="rSh-rd-LAg" id="pjh-b7-Q6T"/>
                         <outlet property="nowPlayingLabel" destination="EAi-d3-eYx" id="T5u-4t-aKx"/>
                         <outlet property="nowPlayingSwitch" destination="M3S-9e-zrw" id="OyR-rf-CTk"/>
+                        <outlet property="removeFromBacklogButton" destination="OUj-Nw-jmb" id="v0T-8I-6ew"/>
                         <outlet property="starredLabel" destination="yQ0-Mw-cLS" id="dED-9c-4nY"/>
                         <outlet property="starredSwitch" destination="1eZ-8H-II9" id="kgc-ZE-cxh"/>
                         <outlet property="unfinishedRadioButton" destination="2df-UW-cl6" id="wUd-O7-i7t"/>
@@ -1202,6 +1218,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pba-7d-AZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Nok-Dh-jkY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6340.579710144928" y="55.580357142857139"/>
         </scene>
@@ -1276,6 +1293,7 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="sparkles" catalog="system" width="112" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">

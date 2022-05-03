@@ -49,7 +49,14 @@ class TrendingViewController: UIViewController {
     }
     
     @IBAction func modalDismissed(segue: UIStoryboardSegue) {
+        guard segue.identifier == "addToBacklog" else { return }
+        let souceViewController = segue.source as! AddEditVideoGameViewController
         
+        if let backlogEntry = souceViewController.backlogEntry {
+            Task {
+                try? await BacklogEntryRequest(backlogEntry: backlogEntry).send()
+            }
+        }
     }
 }
 

@@ -11,6 +11,7 @@ class AddEditVideoGameViewController: UIViewController {
     
     var videoGameDetails: VideoGameDetails?
     var videoGame: VideoGame?
+    var backlogEntry: BacklogEntry?
 
     @IBOutlet var notStartedRadioButton: GameStatusRadioButton!
     @IBOutlet var unfinishedRadioButton: GameStatusRadioButton!
@@ -25,6 +26,8 @@ class AddEditVideoGameViewController: UIViewController {
     @IBOutlet var nowPlayingSwitch: UISwitch!
     @IBOutlet var starredSwitch: UISwitch!
     
+    @IBOutlet var removeFromBacklogButton: UIButton!
+    
     var allButtons: [GameStatusRadioButton]!
     
     override func viewDidLoad() {
@@ -34,6 +37,7 @@ class AddEditVideoGameViewController: UIViewController {
     }
     
     func setupView() {
+        removeFromBacklogButton.isHidden = true
         self.isModalInPresentation = true
         self.navigationItem.backBarButtonItem?.title = ""
         nowPlayingLabel.font = FontKit.roundedFont(ofSize: 20, weight: .medium)
@@ -47,6 +51,7 @@ class AddEditVideoGameViewController: UIViewController {
             }
             nowPlayingSwitch.isOn = videoGameDetails.nowPlaying
             starredSwitch.isOn = videoGameDetails.starred
+            removeFromBacklogButton.isHidden = false
         }
     }
     
@@ -62,6 +67,27 @@ class AddEditVideoGameViewController: UIViewController {
         
         for gameButton in allButtons {
             gameButton.alternateButtons = allButtons.filter { return $0 != gameButton }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "addToBacklog" else { return }
+        
+        let hours = hoursTextField.text!
+        let status = allButtons.filter { $0.isSelected }.first?.status!
+        let nowPlaying = nowPlayingSwitch.isOn
+        let starred = starredSwitch.isOn
+        
+        if let videoGameDetails = videoGameDetails,
+           let _ = videoGameDetails.status,
+           let videoGame = videoGame {
+            backlogEntry = BacklogEntry(user: KeychainItem.currentUserIdentifier, videogameId: videoGame.id, hours: Int(hours) ?? 0, starred: starred, nowPlaying: nowPlaying, status: status!)
+        } else {
+            if let videoGame = videoGame {
+                backlogEntry = BacklogEntry(user: KeychainItem.currentUserIdentifier, videogameId: videoGame.id, name: videoGame.name, cover: videoGame.cover?.imageURL, genres: videoGame.genres.map { $0.name }, hours: Int(hours) ?? 0, starred: starred, nowPlaying: nowPlaying, status: status!)
+            }
         }
     }
 }

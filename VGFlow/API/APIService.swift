@@ -110,3 +110,15 @@ struct RateVideoGameByGameRatingRequest: APIRequest {
         return try! encoder.encode(gameRating)
     }
 }
+
+struct BacklogEntryRequest: APIRequest {
+    typealias Response = Void
+    
+    var path: String { "/videogame/entry" }
+    var backlogEntry: BacklogEntry
+    
+    var postData: Data? {
+        let encoder = JSONEncoder()
+        return try! encoder.encode(backlogEntry)
+    }
+}

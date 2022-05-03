@@ -11,6 +11,7 @@
 		DF1B9F6B281EEF6000260C88 /* GameStatusRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */; };
 		DF1B9F6D281EFC1D00260C88 /* AddEditVideoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */; };
 		DF1B9F6F28204C3E00260C88 /* UserGameRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6E28204C3E00260C88 /* UserGameRating.swift */; };
+		DF1B9F712821A3BD00260C88 /* BacklogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F702821A3BD00260C88 /* BacklogEntry.swift */; };
 		DF1EC299280B36BF00829004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1EC298280B36BF00829004 /* AppDelegate.swift */; };
 		DF1EC29B280B36BF00829004 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1EC29A280B36BF00829004 /* SceneDelegate.swift */; };
 		DF1EC29D280B36BF00829004 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1EC29C280B36BF00829004 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 		DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatusRadioButton.swift; sourceTree = "<group>"; };
 		DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditVideoGameViewController.swift; sourceTree = "<group>"; };
 		DF1B9F6E28204C3E00260C88 /* UserGameRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameRating.swift; sourceTree = "<group>"; };
+		DF1B9F702821A3BD00260C88 /* BacklogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacklogEntry.swift; sourceTree = "<group>"; };
 		DF1EC295280B36BF00829004 /* VGFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1EC298280B36BF00829004 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF1EC29A280B36BF00829004 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				DF23BFB828189C52006CF405 /* VideoGameSearch.swift */,
 				DF1B9F68281ED16300260C88 /* StarRating.swift */,
 				DF1B9F6E28204C3E00260C88 /* UserGameRating.swift */,
+				DF1B9F702821A3BD00260C88 /* BacklogEntry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				DF1EC29B280B36BF00829004 /* SceneDelegate.swift in Sources */,
 				DF23BF11280F3E54006CF405 /* Profile.swift in Sources */,
 				DF1B9F6B281EEF6000260C88 /* GameStatusRadioButton.swift in Sources */,
+				DF1B9F712821A3BD00260C88 /* BacklogEntry.swift in Sources */,
 				DF23BFA92815BD09006CF405 /* SupplementaryItem.swift in Sources */,
 				DF23BFAD2815E226006CF405 /* VideoGameDetailViewController.swift in Sources */,
 				DF1B9F69281ED16300260C88 /* StarRating.swift in Sources */,

@@ -14,6 +14,7 @@ struct VideoGame: Codable {
     var releaseDate: Date
     var summary: String
     var involvedCompanies: [InvolvedCompany]?
+    var genres: [Genre]
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -22,6 +23,7 @@ struct VideoGame: Codable {
         case releaseDate = "release_date"
         case summary
         case involvedCompanies = "involved_companies"
+        case genres
     }
 }
 
@@ -59,3 +61,8 @@ struct Platform: Codable {
 }
 
 extension Platform: Hashable { }
+
+struct Genre: Codable {
+    var id: Int
+    var name: String
+}
