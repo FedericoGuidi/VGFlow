@@ -59,8 +59,19 @@ class VideoGameDetailViewController: UIViewController {
     var videogame: VideoGame?
     var videogameDetails: VideoGameDetails?
     
-    init?(coder: NSCoder, videogame: VideoGameCard) {
-        self.videogameCard = videogame
+    enum Source {
+        case videoGameCard(_ videogame: VideoGameCard)
+        case upcomingGame(_ videogame: UpcomingGame)
+    }
+    
+    init?(coder: NSCoder, source: Source) {
+        switch source {
+        case .videoGameCard(let vg):
+            self.videogameCard = vg
+        case .upcomingGame(let vg):
+            let vgc = VideoGameCard(id: vg.id, name: vg.name)
+            self.videogameCard = vgc
+        }
         super.init(coder: coder)
     }
     

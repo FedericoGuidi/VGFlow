@@ -253,6 +253,7 @@ class ProfileCollectionViewController: UICollectionViewController {
         }
         
         let videogame = item.getVideoGame()!
-        return VideoGameDetailViewController(coder: coder, videogame: videogame)
+        
+        return VideoGameDetailViewController(coder: coder, source: .videoGameCard(videogame))
     }
 }

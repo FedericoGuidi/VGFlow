@@ -37,7 +37,9 @@ extension SupplementaryItem {
 enum SupplementaryView: String, CaseIterable, SupplementaryItem {
     case nowPlayingHeader
     case favoritesHeader
-    case trendingHeader
+    case upcomingGamesHeader
+    case trendingGamesHeader
+    case monthHeader
     
     var reuseIdentifier: String {
         return rawValue
@@ -49,7 +51,7 @@ enum SupplementaryView: String, CaseIterable, SupplementaryItem {
     
     var viewClass: UICollectionReusableView.Type {
         switch self {
-        case .nowPlayingHeader, .favoritesHeader:
+        case .nowPlayingHeader, .favoritesHeader, .upcomingGamesHeader, .trendingGamesHeader:
             return IconSectionCollectionReusableView.self
         default:
             return SectionCollectionReusableView.self
@@ -58,7 +60,7 @@ enum SupplementaryView: String, CaseIterable, SupplementaryItem {
     
     var itemType: SupplementaryItemType {
         switch self {
-        case .nowPlayingHeader, .favoritesHeader:
+        case .nowPlayingHeader, .favoritesHeader, .upcomingGamesHeader, .trendingGamesHeader:
             return .collectionSupplementaryView
         default:
             return .layoutDecorationView

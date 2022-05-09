@@ -122,3 +122,15 @@ struct BacklogEntryRequest: APIRequest {
         return try! encoder.encode(backlogEntry)
     }
 }
+
+struct UpcomingGamesRequest: APIRequest {
+    typealias Response = [UpcomingGame]
+    
+    var path: String { "/videogames/upcoming" }
+}
+
+struct TrendingGamesRequest: APIRequest {
+    typealias Response = [TrendingGame]
+    
+    var path: String { "/videogames/trending" }
+}

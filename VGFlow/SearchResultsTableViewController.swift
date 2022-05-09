@@ -77,6 +77,6 @@ class SearchResultsTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let videogame = VideoGameCard(id: cell.videoGameId!, name: cell.videogameNameLabel.text!)
-        return VideoGameDetailViewController(coder: coder, videogame: videogame)
+        return VideoGameDetailViewController(coder: coder, source: .videoGameCard(videogame))
     }
 }
