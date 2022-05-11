@@ -176,7 +176,7 @@ class VideoGameDetailViewController: UIViewController {
     }
     
     private func updateRatingsDetails(with details: VideoGameDetails) {
-        var startingPoint = 50.0
+        let startingPoint = 50.0
         if let status = details.status {
             starRatingView.isHidden = false
             starRatingView.setNeedsLayout()
