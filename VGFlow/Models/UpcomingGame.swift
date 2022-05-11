@@ -12,7 +12,7 @@ struct UpcomingGame: Codable {
     var name: String
     var cover: Cover?
     var releaseDate: Date
-    var platforms: [Platform]
+    var platforms: [PlatformLite]
     var summary: String
     
     enum CodingKeys: String, CodingKey {

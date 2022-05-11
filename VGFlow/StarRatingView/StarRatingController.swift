@@ -157,6 +157,8 @@ class UIStarRatingView: UIView {
         case .roundToFullStar, .ceilToFullStar, .floorToFullStar:
             roundedRatingFromTouch = Float(round(ratingFromTouch))
         }
+        
+        roundedRatingFromTouch = roundedRatingFromTouch > 5 ? 5 : roundedRatingFromTouch
         self.rating = roundedRatingFromTouch
         
         Task {

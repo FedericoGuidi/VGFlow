@@ -14,8 +14,10 @@ struct VideoGameDetails: Codable {
     var starred: Bool
     var starRating: Float?
     var averageStarRating: Float?
+    var starRatingCount: Int
     var gameRating: GameRating?
     var averageGameRating: GameRating?
+    var gameRatingCount: Int
     
     enum CodingKeys: String, CodingKey {
         case hours
@@ -24,8 +26,10 @@ struct VideoGameDetails: Codable {
         case starred
         case starRating
         case averageStarRating
+        case starRatingCount
         case gameRating
         case averageGameRating
+        case gameRatingCount
     }
 }
 

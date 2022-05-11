@@ -163,7 +163,7 @@ class TrendingViewController: UIViewController {
                 return header
             case .trendingGamesHeader:
                 let header = view as! IconSectionCollectionReusableView
-                header.setTitle("I più votati", with: "star.fill")
+                header.setTitle("I giochi del momento", with: "flame.fill")
                 
                 header.backgroundColor = .systemBackground
                 
@@ -220,16 +220,20 @@ class TrendingViewController: UIViewController {
         return layout
     }
     
-    @IBSegueAction func showVideoGameDetail(_ coder: NSCoder, sender: UpcomingGameCollectionViewCell?) -> VideoGameDetailViewController? {
+    @IBSegueAction func showVideoGameDetail(_ coder: NSCoder, sender: UICollectionViewCell?) -> VideoGameDetailViewController? {
         guard let cell = sender,
               let indexPath = collectionView.indexPath(for: cell),
               let item = dataSource.itemIdentifier(for: indexPath) else {
             return nil
         }
         
-        let videogame = item.getVideoGame() as! UpcomingGame
-        
-        return VideoGameDetailViewController(coder: coder, source: .upcomingGame(videogame))
+        if let _ = cell as? UpcomingGameCollectionViewCell,
+           let videogame = item.getVideoGame() as? UpcomingGame {
+            return VideoGameDetailViewController(coder: coder, source: .upcomingGame(videogame))
+        } else {
+            let videogame = item.getVideoGame() as! TrendingGame
+            return VideoGameDetailViewController(coder: coder, source: .trendingGame(videogame))
+        }
     }
     
     @IBAction func modalDismissed(segue: UIStoryboardSegue) {
@@ -239,6 +243,18 @@ class TrendingViewController: UIViewController {
         if let backlogEntry = souceViewController.backlogEntry {
             Task {
                 try? await BacklogEntryRequest(backlogEntry: backlogEntry).send()
+            }
+        }
+    }
+    
+    @IBAction func modalDismissedForDelete(segue: UIStoryboardSegue) {
+        guard segue.identifier == "removeFromBacklog" else { return }
+        
+        let souceViewController = segue.source as! AddEditVideoGameViewController
+        
+        if let videogame = souceViewController.videoGame {
+            Task {
+                try? await RemoveEntryRequest(videogameId: videogame.id).send()
             }
         }
     }

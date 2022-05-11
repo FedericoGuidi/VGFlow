@@ -14,7 +14,7 @@ class VideoGameSearchTableViewCell: UITableViewCell {
     @IBOutlet var coverView: UIImageView!
     @IBOutlet var platformsCollectionView: UICollectionView!
     
-    var platforms: [Platform]?
+    var platforms: [PlatformLite]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,7 +45,7 @@ class VideoGameSearchTableViewCell: UITableViewCell {
 extension VideoGameSearchTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // The data we passed from the TableView send them to the CollectionView Model
-    func updateCellWith(platforms: [Platform]?) {
+    func updateCellWith(platforms: [PlatformLite]?) {
         if let platforms = platforms {
             self.platforms = platforms
         } else {

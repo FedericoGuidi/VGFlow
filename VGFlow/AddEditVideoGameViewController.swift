@@ -48,15 +48,18 @@ class AddEditVideoGameViewController: UIViewController {
                let status = videoGameDetails.status {
                 hoursTextField.text = String(hours)
                 allButtons.first { $0.status == status }?.isSelected = true
+                removeFromBacklogButton.isHidden = false
+            } else {
+                notStartedRadioButton.isSelected = true
             }
             nowPlayingSwitch.isOn = videoGameDetails.nowPlaying
             starredSwitch.isOn = videoGameDetails.starred
-            removeFromBacklogButton.isHidden = false
         }
     }
     
     private func buttonSetup() {
         allButtons = [notStartedRadioButton, unfinishedRadioButton, finishedRadioButton, completedRadioButton, unlimitedRadioButton, abandonedRadioButton]
+        
         
         notStartedRadioButton.status = .notStarted
         unfinishedRadioButton.status = .unfinished
@@ -80,14 +83,26 @@ class AddEditVideoGameViewController: UIViewController {
         let nowPlaying = nowPlayingSwitch.isOn
         let starred = starredSwitch.isOn
         
-        if let videoGameDetails = videoGameDetails,
-           let _ = videoGameDetails.status,
+        if let _ = self.videoGameDetails?.status,
            let videoGame = videoGame {
+            // Salvo in libreria
             backlogEntry = BacklogEntry(user: KeychainItem.currentUserIdentifier, videogameId: videoGame.id, hours: Int(hours) ?? 0, starred: starred, nowPlaying: nowPlaying, status: status!)
         } else {
+            // Aggiungo per la prima volta in libreria
             if let videoGame = videoGame {
                 backlogEntry = BacklogEntry(user: KeychainItem.currentUserIdentifier, videogameId: videoGame.id, name: videoGame.name, cover: videoGame.cover?.imageURL, genres: videoGame.genres.map { $0.name }, hours: Int(hours) ?? 0, starred: starred, nowPlaying: nowPlaying, status: status!)
             }
         }
+    }
+    
+    @IBAction func removeFromBacklogButtonClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "Attenzione!", message: "Vuoi davvero rimuovere \(videoGame!.name) dalla tua libreria?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Conferma", style: .destructive, handler: removeFromBacklogHandler))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func removeFromBacklogHandler(alert: UIAlertAction) {
+        self.performSegue(withIdentifier: "removeFromBacklog", sender: self)
     }
 }

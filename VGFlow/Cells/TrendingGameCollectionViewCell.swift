@@ -24,6 +24,8 @@ class TrendingGameCollectionViewCell: UICollectionViewCell {
         self.starRating.rating = videogame.averageStarRating
         self.starRating.starColor = .systemYellow
         self.totalNowPlayingLabel.text = String(videogame.totalNowPlaying)
+        self.bestRatingIcon.image = videogame.bestGameRating.type.icon
+        self.bestRatingLabel.text = String(Int(ceil(videogame.bestGameRating.value * 100))) + "%"
         
         imageLoadTasks[indexPath] = Task {
             if let image = try? await ImageRequest(path: videogame.cover).send() {

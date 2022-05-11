@@ -13,7 +13,9 @@ struct VideoGame: Codable {
     var cover: Cover?
     var releaseDate: Date
     var summary: String
+    var storyline: String
     var involvedCompanies: [InvolvedCompany]?
+    var platforms: [Platform]?
     var genres: [Genre]
     
     enum CodingKeys: String, CodingKey {
@@ -22,7 +24,9 @@ struct VideoGame: Codable {
         case cover
         case releaseDate = "release_date"
         case summary
+        case storyline
         case involvedCompanies = "involved_companies"
+        case platforms
         case genres
     }
 }
@@ -51,11 +55,12 @@ struct Company: Codable {
 
 struct Platform: Codable {
     var id: Int
-    //var name: String
+    var name: String
     var abbreviation: String
     
     enum CodingKeys: String, CodingKey {
         case id
+        case name
         case abbreviation
     }
 }

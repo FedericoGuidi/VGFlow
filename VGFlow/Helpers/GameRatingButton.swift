@@ -62,20 +62,4 @@ class GameRatingButton: UIButton {
         // 2
         self.configuration = updatedConfiguration
     }
-    
-    // Set the selected properties
-    /*func setSelected() {
-        let templateImage = imageView!.image?.withRenderingMode(.alwaysTemplate)
-        imageView!.image = templateImage
-        imageView!.tintColor = .white
-        self.backgroundColor = .systemIndigo
-    }
-    
-    // Set the deselcted properties
-    func setDeselected() {
-        let templateImage = imageView!.image?.withRenderingMode(.alwaysTemplate)
-        imageView!.image = templateImage
-        imageView!.tintColor = .label
-        self.backgroundColor = .lightGray.withAlphaComponent(0.2)
-    }*/
 }

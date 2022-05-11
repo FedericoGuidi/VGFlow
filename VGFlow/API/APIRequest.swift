@@ -15,6 +15,7 @@ protocol APIRequest {
     var queryItems: [URLQueryItem]? { get }
     var request: URLRequest { get }
     var postData: Data? { get }
+    var httpMethod: String? { get }
 }
 
 extension APIRequest {
@@ -24,6 +25,7 @@ extension APIRequest {
 extension APIRequest {
     var queryItems: [URLQueryItem]? { nil }
     var postData: Data? { nil }
+    var httpMethod: String? { nil }
 }
 
 extension APIRequest {
@@ -41,6 +43,10 @@ extension APIRequest {
             request.httpBody = data
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpMethod = "POST"
+        }
+        
+        if let method = httpMethod {
+            request.httpMethod = method
         }
         
         //request.setValue("Bearer \(KeychainItem.currentBearer)", forHTTPHeaderField: "Authorization")

@@ -11,6 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class ProfileCollectionViewController: UICollectionViewController {
 
+    
+    
     var profileRequestTask: Task<Void, Never>? = nil
     deinit {
         profileRequestTask?.cancel()
@@ -230,18 +232,20 @@ class ProfileCollectionViewController: UICollectionViewController {
                 try? await BacklogEntryRequest(backlogEntry: backlogEntry).send()
                 updateProfile()
             }
-            
-            //print(videogame)
-            /*if let indexOfExistingToDo = toDos.firstIndex(of: toDo) {
-                toDos[indexOfExistingToDo] = toDo
-                tableView.reloadRows(at: [IndexPath(row: indexOfExistingToDo, section: 0)], with: .automatic)
-            } else {
-                let newIndexPath = IndexPath(row: toDos.count, section: 0)
-                toDos.append(toDo)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }*/
         }
-        //ToDo.saveToDos(toDos)
+    }
+    
+    @IBAction func modalDismissedForDelete(segue: UIStoryboardSegue) {
+        guard segue.identifier == "removeFromBacklog" else { return }
+        
+        let souceViewController = segue.source as! AddEditVideoGameViewController
+        
+        if let videogame = souceViewController.videoGame {
+            Task {
+                try? await RemoveEntryRequest(videogameId: videogame.id).send()
+                updateProfile()
+            }
+        }
     }
     
     @IBSegueAction func showVideoGameDetail(_ coder: NSCoder, sender: VideoGameCollectionViewCell?) -> VideoGameDetailViewController? {

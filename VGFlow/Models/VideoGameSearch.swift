@@ -11,7 +11,7 @@ struct VideoGameSearch: Codable {
     var id: Int
     var name: String
     var cover: Cover?
-    var platforms: [Platform]?
+    var platforms: [PlatformLite]?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -22,3 +22,15 @@ struct VideoGameSearch: Codable {
 }
 
 extension VideoGameSearch: Hashable { }
+
+struct PlatformLite: Codable {
+    var id: Int
+    var abbreviation: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case abbreviation
+    }
+}
+
+extension PlatformLite: Hashable { }
