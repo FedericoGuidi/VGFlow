@@ -11,15 +11,12 @@ import UIKit
 struct LoginRequest: APIRequest {
     typealias Response = BearerToken
     
-    var authCode: String?
     var path: String { "/login" }
+    var payload: LoginPayload
     
-    var queryItems: [URLQueryItem]? {
-        if let authCode = authCode {
-            return [URLQueryItem(name: "ac", value: authCode)]
-        } else {
-            return nil
-        }
+    var postData: Data? {
+        let encoder = JSONEncoder()
+        return try! encoder.encode(payload)
     }
 }
 
@@ -79,8 +76,7 @@ struct VideoGameDetailsRequest: APIRequest {
     var queryItems: [URLQueryItem]? {
         if let videogameId = videogameId {
             return [URLQueryItem(name: "vid", value: String(videogameId)),
-                    //URLQueryItem(name: "uid", value: KeychainItem.currentUserIdentifier)]
-                    URLQueryItem(name: "uid", value: "001309.bca6a7cae40c4815995d19522fdde5a0.1537")]
+                    URLQueryItem(name: "uid", value: KeychainItem.currentUserIdentifier)]
         } else {
             return nil
         }
@@ -144,9 +140,8 @@ struct RemoveEntryRequest: APIRequest {
     
     var queryItems: [URLQueryItem]? {
         if let videogameId = videogameId {
-            return [URLQueryItem(name: "id", value: String(videogameId)),
-                    //URLQueryItem(name: "uid", value: KeychainItem.currentUserIdentifier)]
-                    URLQueryItem(name: "userId", value: "001309.bca6a7cae40c4815995d19522fdde5a0.1537")]
+            return [URLQueryItem(name: "vid", value: String(videogameId)),
+                    URLQueryItem(name: "uid", value: KeychainItem.currentUserIdentifier)]
         } else {
             return nil
         }

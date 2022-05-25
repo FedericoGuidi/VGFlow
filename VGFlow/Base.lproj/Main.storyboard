@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="54.910714285714285"/>
         </scene>
-        <!--Profile Collection View Controller-->
+        <!--Profilo-->
         <scene sceneID="q7R-Ta-4vc">
             <objects>
                 <collectionViewController id="Qr9-fw-vh8" customClass="ProfileCollectionViewController" customModule="VGFlow" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,8 +60,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8nw-KO-Cti">
-                            <size key="itemSize" width="414" height="125"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1zN-ea-bAd">
+                            <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -87,14 +87,30 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JUu-CX-Wen">
                                                     <rect key="frame" x="118.5" y="0.0" width="255.5" height="110.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Profile Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cj2-cr-RkD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="255.5" height="30"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="irX-ff-Iqe">
+                                                            <rect key="frame" x="0.0" y="0.0" width="255.5" height="25"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Profile Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cj2-cr-RkD">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="226.5" height="25"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZu-hl-6A2">
+                                                                    <rect key="frame" x="230.5" y="0.0" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="EZu-hl-6A2" secondAttribute="height" multiplier="1:1" id="RBY-TE-CI7"/>
+                                                                        <constraint firstAttribute="height" constant="25" id="TQg-Ef-yhf"/>
+                                                                    </constraints>
+                                                                    <buttonConfiguration key="configuration" style="gray">
+                                                                        <imageReference key="image" image="highlighter" catalog="system" symbolScale="small"/>
+                                                                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                                    </buttonConfiguration>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXX-2z-Iwl">
-                                                            <rect key="frame" x="0.0" y="34" width="255.5" height="76.5"/>
+                                                            <rect key="frame" x="0.0" y="29" width="255.5" height="81.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -338,6 +354,7 @@
                             <outlet property="delegate" destination="Qr9-fw-vh8" id="MQO-bS-bJX"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Profilo" image="gamecontroller.fill" catalog="system" id="sKj-P2-zcf"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="XSz-Rb-Lim"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baB-Oq-ZaV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -355,7 +372,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="GAO-1Y-Ref" kind="relationship" relationship="viewControllers" id="E3u-ub-0ER"/>
+                        <segue destination="Qr9-fw-vh8" kind="relationship" relationship="viewControllers" id="TLJ-Fi-aGf"/>
                         <segue destination="0PB-Wm-QIC" kind="relationship" relationship="viewControllers" id="6Vd-we-ZfZ"/>
                     </connections>
                 </tabBarController>
@@ -492,19 +509,19 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data uscita" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYW-v1-TF2">
-                                                            <rect key="frame" x="0.0" y="46.5" width="235" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="63.5" width="235" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="DETTAGLI DETTAGLISSIMI ESATTOOOOO PROVA PROVA PROVA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uW-FR-HgT">
-                                                            <rect key="frame" x="0.0" y="70" width="235" height="50.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Piattaforme" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uW-FR-HgT">
+                                                            <rect key="frame" x="0.0" y="104.5" width="235" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Descrizione prova prova prova aa a a a a a a a a ciao a tutti quanti lorem ipsum LOLOLO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbQ-9s-2s3">
-                                                            <rect key="frame" x="0.0" y="124.5" width="235" height="32.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbQ-9s-2s3">
+                                                            <rect key="frame" x="0.0" y="142.5" width="235" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="0.0"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -662,38 +679,19 @@
             </objects>
             <point key="canvasLocation" x="3608.6956521739135" y="488.83928571428567"/>
         </scene>
-        <!--Profilo-->
-        <scene sceneID="ycO-AB-7pi">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GAO-1Y-Ref" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profilo" image="gamecontroller.fill" catalog="system" id="ert-C4-Zub"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1EX-ge-o89">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Qr9-fw-vh8" kind="relationship" relationship="rootViewController" id="yHK-wa-Mqf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ipK-K0-fD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2236" y="-267"/>
-        </scene>
         <!--Video Game Detail View Controller-->
         <scene sceneID="Xk3-0k-XAL">
             <objects>
                 <viewController id="cIM-ia-qQq" customClass="VideoGameDetailViewController" customModule="VGFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pc1-1z-HLw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1946"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9C-Xf-FyM">
-                                <rect key="frame" x="0.0" y="56" width="414" height="1841"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="737"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VZe-01-nOl">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZe-01-nOl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P32-tw-MiY">
                                                 <rect key="frame" x="114" y="25" width="186" height="246"/>
@@ -1311,7 +1309,6 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <size key="freeformSize" width="414" height="2000"/>
                     <connections>
                         <outlet property="addToLibraryButton" destination="qVy-vK-noc" id="UYY-i8-MJj"/>
                         <outlet property="averageStarRatingLabel" destination="Fqh-f6-PKH" id="KW9-CB-I8N"/>
@@ -1624,6 +1621,7 @@
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="highlighter" catalog="system" width="128" height="119"/>
         <image name="infinity.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="logo.xbox" catalog="system" width="128" height="121"/>

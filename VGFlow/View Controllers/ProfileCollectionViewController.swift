@@ -60,8 +60,23 @@ class ProfileCollectionViewController: UICollectionViewController {
     var model = Model()
     var dataSource: DataSourceType!
     
+    fileprivate func setStatusBar() {
+        collectionView.contentInsetAdjustmentBehavior = .always
+        let height = UIApplication.shared.statusBarFrame.height
+        
+        
+        let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: height))
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = statusBarView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        statusBarView.addSubview(blurEffectView)
+        view.addSubview(statusBarView)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStatusBar()
         
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
@@ -75,16 +90,18 @@ class ProfileCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        updateProfile()
+        if KeychainItem.currentUserIdentifier != "" {
+            updateProfile()
+        }
     }
     
     func updateProfile() {
         profileRequestTask?.cancel()
         profileRequestTask = Task {
-            if let profile = try? await ProfileRequest(id: "001309.bca6a7cae40c4815995d19522fdde5a0.1537").send() {
+            if let profile = try? await ProfileRequest().send() {
                 self.model.profile = profile
+                self.updateCollectionView()
             }
-            self.updateCollectionView()
             
             profileRequestTask = nil
         }
@@ -259,5 +276,15 @@ class ProfileCollectionViewController: UICollectionViewController {
         let videogame = item.getVideoGame()!
         
         return VideoGameDetailViewController(coder: coder, source: .videoGameCard(videogame))
+    }
+    
+    @IBAction func signOutButtonPressed() {
+        // For the purpose of this demo app, delete the user identifier that was previously stored in the keychain.
+        KeychainItem.deleteUserIdentifierFromKeychain()
+        
+        // Display the login controller again.
+        DispatchQueue.main.async {
+            self.showLoginViewController()
+        }
     }
 }

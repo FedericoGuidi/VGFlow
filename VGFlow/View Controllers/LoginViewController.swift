@@ -56,7 +56,10 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             
             Task {
                 do {
-                    let token = try await LoginRequest(authCode: authCode).send()
+                    
+                    let payload = LoginPayload(authorizationCode: authCode, appleID: appleIDCredential.user, fullName: appleIDCredential.fullName?.givenName, email: appleIDCredential.email)
+                    
+                    let token = try await LoginRequest(payload: payload).send()
                     self.saveBearerInKeychain(token.idToken)
                     
                     let userIdentifier = appleIDCredential.user

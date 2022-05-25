@@ -7,6 +7,13 @@
 
 import Foundation
 
+struct LoginPayload: Codable {
+    let authorizationCode: String
+    let appleID: String
+    let fullName: String?
+    let email: String?
+}
+
 struct BearerToken: Codable {
     let accessToken: String
     let tokenType: String
