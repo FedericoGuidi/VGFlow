@@ -105,10 +105,10 @@ class TrendingViewController: UIViewController {
         var sectionIDs = [ViewModel.Section]()
         var itemsBySection = [ViewModel.Section: [ViewModel.Item]]()
         
-        itemsBySection[.trendingGames] = model.trendingGames!.map { ViewModel.Item.trendingGame($0) }
+        itemsBySection[.trendingGames] = model.trendingGames?.map { ViewModel.Item.trendingGame($0) }
         sectionIDs.append(.trendingGames)
         
-        itemsBySection[.upcomingGames] = model.upcomingGames!.map { ViewModel.Item.upcomingGame($0) }
+        itemsBySection[.upcomingGames] = model.upcomingGames?.map { ViewModel.Item.upcomingGame($0) }
         sectionIDs.append(.upcomingGames)
     
         dataSource.applySnapshotUsing(sectionIDs: sectionIDs, itemsBySection: itemsBySection)

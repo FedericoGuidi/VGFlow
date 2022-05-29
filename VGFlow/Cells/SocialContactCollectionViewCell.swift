@@ -23,7 +23,7 @@ class SocialContactCollectionViewCell: UICollectionViewCell {
         
         switch social.type {
         case .nintendoSwitch:
-            imageView.image = UIImage(systemName: "gamecontroller.fill")
+            imageView.image = UIImage(named: "logo.nintendoswitch")
             backgroundConfiguration.backgroundColor = .systemRed
         case .xbox:
             imageView.image = UIImage(systemName: "logo.xbox")
@@ -31,6 +31,9 @@ class SocialContactCollectionViewCell: UICollectionViewCell {
         case .playstation:
             imageView.image = UIImage(systemName: "logo.playstation")
             backgroundConfiguration.backgroundColor = .systemBlue
+        case .steam:
+            imageView.image = UIImage(named: "logo.steam")
+            backgroundConfiguration.backgroundColor = .systemGray
         }
         
         self.backgroundConfiguration = backgroundConfiguration

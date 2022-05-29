@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="54.910714285714285"/>
         </scene>
-        <!--Profilo-->
+        <!--Profile Collection View Controller-->
         <scene sceneID="q7R-Ta-4vc">
             <objects>
                 <collectionViewController id="Qr9-fw-vh8" customClass="ProfileCollectionViewController" customModule="VGFlow" customModuleProvider="target" sceneMemberID="viewController">
@@ -106,6 +106,9 @@
                                                                         <imageReference key="image" image="highlighter" catalog="system" symbolScale="small"/>
                                                                         <color key="baseForegroundColor" systemColor="labelColor"/>
                                                                     </buttonConfiguration>
+                                                                    <connections>
+                                                                        <segue destination="VpE-fk-dp2" kind="show" destinationCreationSelector="showEditProfile:" id="x4Z-wz-38N"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -354,12 +357,225 @@
                             <outlet property="delegate" destination="Qr9-fw-vh8" id="MQO-bS-bJX"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Profilo" image="gamecontroller.fill" catalog="system" id="sKj-P2-zcf"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="XSz-Rb-Lim"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baB-Oq-ZaV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3117" y="-268"/>
+            <point key="canvasLocation" x="3268" y="-252"/>
+        </scene>
+        <!--Modifica profilo-->
+        <scene sceneID="dxP-Sz-6ZN">
+            <objects>
+                <tableViewController id="VpE-fk-dp2" customClass="EditProfileTableViewController" customModule="VGFlow" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="cE7-gO-5xF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <sections>
+                            <tableViewSection headerTitle="Nome" id="L0e-7c-Gki">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Rzf-W5-ycd">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rzf-W5-ycd" id="xUo-6m-3iV">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r63-jp-NXP">
+                                                    <rect key="frame" x="20" y="11" width="334" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r63-jp-NXP" firstAttribute="leading" secondItem="xUo-6m-3iV" secondAttribute="leadingMargin" id="0X9-Fs-A8m"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="r63-jp-NXP" secondAttribute="bottom" id="fNo-7J-nPt"/>
+                                                <constraint firstItem="r63-jp-NXP" firstAttribute="top" secondItem="xUo-6m-3iV" secondAttribute="topMargin" id="kWD-OV-JNl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="r63-jp-NXP" secondAttribute="trailing" id="tPS-CO-Psx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Bio" id="Gdt-hc-Csp">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="Fbi-49-pTF">
+                                        <rect key="frame" x="20" y="143.5" width="374" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fbi-49-pTF" id="uUK-d4-0qS">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXR-Bu-rYX">
+                                                    <rect key="frame" x="20" y="11" width="334" height="78"/>
+                                                    <viewLayoutGuide key="contentLayoutGuide" id="6f2-Iz-1A8"/>
+                                                    <viewLayoutGuide key="frameLayoutGuide" id="JE9-2y-I6C"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zXR-Bu-rYX" secondAttribute="trailing" id="0zP-C3-kcn"/>
+                                                <constraint firstItem="zXR-Bu-rYX" firstAttribute="leading" secondItem="uUK-d4-0qS" secondAttribute="leadingMargin" id="GRH-Y6-j2n"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zXR-Bu-rYX" secondAttribute="bottom" id="hKp-0C-fre"/>
+                                                <constraint firstItem="zXR-Bu-rYX" firstAttribute="top" secondItem="uUK-d4-0qS" secondAttribute="topMargin" id="pal-Zu-rRK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Social" id="na5-4S-ZSN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aFR-on-wqZ">
+                                        <rect key="frame" x="20" y="293.5" width="374" height="42"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aFR-on-wqZ" id="VE1-PN-MVN">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.nintendoswitch" translatesAutoresizingMaskIntoConstraints="NO" id="n7w-jP-MBF">
+                                                    <rect key="frame" x="20" y="11" width="25" height="20"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="KD7-Lq-IvM"/>
+                                                        <constraint firstAttribute="width" constant="25" id="KL3-pc-cl9"/>
+                                                    </constraints>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nintendo Switch Online" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Xt-s9-Omy">
+                                                    <rect key="frame" x="55" y="11" width="299" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Xt-s9-Omy" firstAttribute="leading" secondItem="n7w-jP-MBF" secondAttribute="trailing" constant="10" id="FJ7-0Q-meo"/>
+                                                <constraint firstItem="n7w-jP-MBF" firstAttribute="top" secondItem="VE1-PN-MVN" secondAttribute="topMargin" id="d0K-7f-H4g"/>
+                                                <constraint firstItem="n7w-jP-MBF" firstAttribute="leading" secondItem="VE1-PN-MVN" secondAttribute="leadingMargin" id="iKa-nz-q3C"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="n7w-jP-MBF" secondAttribute="bottom" id="itH-Ep-H6J"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4Xt-s9-Omy" secondAttribute="bottom" id="wAw-Tw-zTC"/>
+                                                <constraint firstItem="4Xt-s9-Omy" firstAttribute="trailing" secondItem="VE1-PN-MVN" secondAttribute="trailingMargin" id="xKt-Lm-34a"/>
+                                                <constraint firstItem="4Xt-s9-Omy" firstAttribute="top" secondItem="VE1-PN-MVN" secondAttribute="topMargin" id="yxH-fb-gpo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jiz-DN-Smc">
+                                        <rect key="frame" x="20" y="335.5" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jiz-DN-Smc" id="ccH-cZ-53x">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.xbox" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EiC-VD-z1h">
+                                                    <rect key="frame" x="20" y="11" width="25" height="21.5"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="y3l-ca-u8M"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Xbox" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EnC-pE-Nqm">
+                                                    <rect key="frame" x="55" y="11" width="299" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="EnC-pE-Nqm" secondAttribute="bottom" id="AnQ-Dy-0Vm"/>
+                                                <constraint firstItem="EnC-pE-Nqm" firstAttribute="top" secondItem="ccH-cZ-53x" secondAttribute="topMargin" id="FvZ-3c-5PA"/>
+                                                <constraint firstItem="EiC-VD-z1h" firstAttribute="leading" secondItem="ccH-cZ-53x" secondAttribute="leadingMargin" id="d4x-ER-tsH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EnC-pE-Nqm" secondAttribute="trailing" id="eAY-hs-Gyf"/>
+                                                <constraint firstItem="EnC-pE-Nqm" firstAttribute="leading" secondItem="EiC-VD-z1h" secondAttribute="trailing" constant="10" id="pGF-ma-Mhi"/>
+                                                <constraint firstItem="EiC-VD-z1h" firstAttribute="top" secondItem="ccH-cZ-53x" secondAttribute="topMargin" id="pZs-h2-Qyh"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="EiC-VD-z1h" secondAttribute="bottom" id="pwz-AI-wcJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Qsj-ot-4jR">
+                                        <rect key="frame" x="20" y="379.5" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qsj-ot-4jR" id="jhI-Pi-jBv">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.playstation" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e8v-Ai-Z4q">
+                                                    <rect key="frame" x="20" y="11.5" width="25" height="20.5"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="c9l-sT-vzE"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PlayStation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQY-LX-XID">
+                                                    <rect key="frame" x="55" y="11" width="299" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="e8v-Ai-Z4q" firstAttribute="top" secondItem="jhI-Pi-jBv" secondAttribute="topMargin" id="9D5-5s-Tr6"/>
+                                                <constraint firstItem="e8v-Ai-Z4q" firstAttribute="leading" secondItem="jhI-Pi-jBv" secondAttribute="leadingMargin" id="CwX-Vq-70x"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="OQY-LX-XID" secondAttribute="trailing" id="J47-kN-hPs"/>
+                                                <constraint firstItem="OQY-LX-XID" firstAttribute="leading" secondItem="e8v-Ai-Z4q" secondAttribute="trailing" constant="10" id="ZuE-4D-tzT"/>
+                                                <constraint firstItem="OQY-LX-XID" firstAttribute="top" secondItem="jhI-Pi-jBv" secondAttribute="topMargin" id="iR2-Gy-gCt"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="e8v-Ai-Z4q" secondAttribute="bottom" id="j6M-4k-zbZ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="OQY-LX-XID" secondAttribute="bottom" id="tBX-gE-2ZI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rte-Qm-WrV">
+                                        <rect key="frame" x="20" y="423.5" width="374" height="42"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rte-Qm-WrV" id="c36-rF-dPP">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.steam" translatesAutoresizingMaskIntoConstraints="NO" id="D7Y-pE-Xx8">
+                                                    <rect key="frame" x="20" y="11" width="25" height="20"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="5pP-GA-oia"/>
+                                                        <constraint firstAttribute="width" constant="25" id="o9D-F1-iIy"/>
+                                                    </constraints>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Steam" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfX-co-sPT">
+                                                    <rect key="frame" x="55" y="11" width="299" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="D7Y-pE-Xx8" firstAttribute="leading" secondItem="c36-rF-dPP" secondAttribute="leadingMargin" id="1Wd-Bf-mDo"/>
+                                                <constraint firstItem="xfX-co-sPT" firstAttribute="top" secondItem="c36-rF-dPP" secondAttribute="topMargin" id="VKm-dl-YGl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xfX-co-sPT" secondAttribute="bottom" id="YDR-q2-BeS"/>
+                                                <constraint firstItem="xfX-co-sPT" firstAttribute="leading" secondItem="D7Y-pE-Xx8" secondAttribute="trailing" constant="10" id="Yj4-qu-c4D"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xfX-co-sPT" secondAttribute="trailing" id="iT6-U5-R2j"/>
+                                                <constraint firstItem="D7Y-pE-Xx8" firstAttribute="top" secondItem="c36-rF-dPP" secondAttribute="topMargin" id="lag-rM-tbq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="D7Y-pE-Xx8" secondAttribute="bottom" id="t8w-gS-3vt"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="VpE-fk-dp2" id="czC-Wn-UwQ"/>
+                            <outlet property="delegate" destination="VpE-fk-dp2" id="bRG-PX-P46"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Modifica profilo" id="rGp-U3-ffg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rLG-E3-MMi"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bioTextField" destination="zXR-Bu-rYX" id="KKf-Mx-CDX"/>
+                        <outlet property="nameTextField" destination="r63-jp-NXP" id="wsP-41-QBz"/>
+                        <outlet property="nintendoSwitchTextField" destination="4Xt-s9-Omy" id="eSW-oc-mG5"/>
+                        <outlet property="playStationTextField" destination="OQY-LX-XID" id="Phv-Tp-msr"/>
+                        <outlet property="steamTextField" destination="xfX-co-sPT" id="RK9-EE-kCT"/>
+                        <outlet property="xboxTextField" destination="EnC-pE-Nqm" id="FIU-c8-JZZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aYf-Fm-2g0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4331.884057971015" y="-519.64285714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0hI-ax-qXW">
@@ -372,7 +588,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Qr9-fw-vh8" kind="relationship" relationship="viewControllers" id="TLJ-Fi-aGf"/>
+                        <segue destination="DN7-vt-Um9" kind="relationship" relationship="viewControllers" id="TLJ-Fi-aGf"/>
                         <segue destination="0PB-Wm-QIC" kind="relationship" relationship="viewControllers" id="6Vd-we-ZfZ"/>
                     </connections>
                 </tabBarController>
@@ -1351,7 +1567,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAo-Wx-DdO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="oTF-0F-NTg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5485.507246376812" y="54.910714285714285"/>
+            <point key="canvasLocation" x="6395.652173913044" y="54.910714285714285"/>
         </scene>
         <!--Add Edit Video Game View Controller-->
         <scene sceneID="Zfd-H3-kcu">
@@ -1557,7 +1773,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pba-7d-AZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Nok-Dh-jkY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6340.579710144928" y="55.580357142857139"/>
+            <point key="canvasLocation" x="7250.7246376811599" y="55.580357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l80-FG-aD4">
@@ -1575,7 +1791,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PR-3x-xq8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4575" y="53"/>
+            <point key="canvasLocation" x="5484.057971014493" y="52.901785714285715"/>
         </scene>
         <!--Trending-->
         <scene sceneID="eex-BB-4k2">
@@ -1596,10 +1812,29 @@
             </objects>
             <point key="canvasLocation" x="1796" y="489"/>
         </scene>
+        <!--Profilo-->
+        <scene sceneID="vER-IO-K4j">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DN7-vt-Um9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profilo" image="gamecontroller.fill" catalog="system" id="sKj-P2-zcf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dsd-Ae-awU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qr9-fw-vh8" kind="relationship" relationship="rootViewController" id="9AK-mC-HSS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iLy-oq-mSi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2358" y="-252"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="3gt-hq-L55"/>
-        <segue reference="0et-e0-ieu"/>
+        <segue reference="Ikm-TI-i1A"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="atom" catalog="system" width="119" height="128"/>
@@ -1624,6 +1859,9 @@
         <image name="highlighter" catalog="system" width="128" height="119"/>
         <image name="infinity.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="logo.nintendoswitch" width="550" height="550"/>
+        <image name="logo.playstation" catalog="system" width="128" height="92"/>
+        <image name="logo.steam" width="256" height="259"/>
         <image name="logo.xbox" catalog="system" width="128" height="121"/>
         <image name="music.note" catalog="system" width="97" height="128"/>
         <image name="paintbrush.pointed.fill" catalog="system" width="128" height="119"/>

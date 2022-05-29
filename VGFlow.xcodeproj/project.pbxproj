@@ -48,6 +48,7 @@
 		DF23BFBC2819398D006CF405 /* VideoGameSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFBA2819398C006CF405 /* VideoGameSearchTableViewCell.swift */; };
 		DF23BFBF281982AD006CF405 /* PlatformCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFBE281982AB006CF405 /* PlatformCollectionViewCell.swift */; };
 		DF23BFC128199358006CF405 /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23BFC028199357006CF405 /* LeftAlignedFlowLayout.swift */; };
+		DF4B11142843DD2900EF0895 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B11132843DD2900EF0895 /* EditProfileTableViewController.swift */; };
 		DF4F9DDD281AC5FE00F7C95C /* StarRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F9DDC281AC5FE00F7C95C /* StarRatingController.swift */; };
 		DF4F9DDF281AC69F00F7C95C /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F9DDE281AC69F00F7C95C /* StarRatingStackView.swift */; };
 		DF4F9DE1281AC6C800F7C95C /* StarRatingStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4F9DE0281AC6C700F7C95C /* StarRatingStackView.xib */; };
@@ -101,6 +102,7 @@
 		DF23BFBA2819398C006CF405 /* VideoGameSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameSearchTableViewCell.swift; sourceTree = "<group>"; };
 		DF23BFBE281982AB006CF405 /* PlatformCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF23BFC028199357006CF405 /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
+		DF4B11132843DD2900EF0895 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		DF4F9DDC281AC5FE00F7C95C /* StarRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingController.swift; sourceTree = "<group>"; };
 		DF4F9DDE281AC69F00F7C95C /* StarRatingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
 		DF4F9DE0281AC6C700F7C95C /* StarRatingStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarRatingStackView.xib; sourceTree = "<group>"; };
@@ -147,8 +149,8 @@
 				DF1EC2A1280B36C300829004 /* Assets.xcassets */,
 				DF1EC2A6280B36C300829004 /* Info.plist */,
 				DF4B1112283E680100EF0895 /* View Controllers */,
-				DF23BF422811799C006CF405 /* Helpers */,
 				DF23BF412811797C006CF405 /* Models */,
+				DF23BF422811799C006CF405 /* Helpers */,
 				DF23BF3E281165C4006CF405 /* API */,
 				DF23BF9B281440C3006CF405 /* Cells */,
 				DF4F9DDB281AC57C00F7C95C /* StarRatingView */,
@@ -226,6 +228,7 @@
 				DF23BFB42818633D006CF405 /* SearchResultsTableViewController.swift */,
 				DF23BFAC2815E226006CF405 /* VideoGameDetailViewController.swift */,
 				DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */,
+				DF4B11132843DD2900EF0895 /* EditProfileTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				DF23BFA1281541A3006CF405 /* Backlog.swift in Sources */,
 				DF23BFB52818633E006CF405 /* SearchResultsTableViewController.swift in Sources */,
 				DF23BF9228141BDE006CF405 /* APIService.swift in Sources */,
+				DF4B11142843DD2900EF0895 /* EditProfileTableViewController.swift in Sources */,
 				DF4F9DE3281AD6A800F7C95C /* VideoGameDetails.swift in Sources */,
 				DF23BFC128199358006CF405 /* LeftAlignedFlowLayout.swift in Sources */,
 				DF23BF9628142908006CF405 /* ProfileHeaderCollectionViewCell.swift in Sources */,
@@ -512,6 +516,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -523,7 +529,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -541,6 +547,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -552,7 +560,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

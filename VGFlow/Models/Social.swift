@@ -11,6 +11,7 @@ enum SocialType: String, Codable {
     case nintendoSwitch
     case xbox
     case playstation
+    case steam
 }
 
 struct Social: Codable {

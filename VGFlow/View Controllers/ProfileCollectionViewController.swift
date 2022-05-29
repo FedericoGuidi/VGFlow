@@ -60,23 +60,9 @@ class ProfileCollectionViewController: UICollectionViewController {
     var model = Model()
     var dataSource: DataSourceType!
     
-    fileprivate func setStatusBar() {
-        collectionView.contentInsetAdjustmentBehavior = .always
-        let height = UIApplication.shared.statusBarFrame.height
-        
-        
-        let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: height))
-        let blurEffect = UIBlurEffect(style: .regular)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = statusBarView.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        statusBarView.addSubview(blurEffectView)
-        view.addSubview(statusBarView)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setStatusBar()
+        self.collectionView.contentInsetAdjustmentBehavior = .always
         
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
@@ -276,6 +262,10 @@ class ProfileCollectionViewController: UICollectionViewController {
         let videogame = item.getVideoGame()!
         
         return VideoGameDetailViewController(coder: coder, source: .videoGameCard(videogame))
+    }
+    
+    @IBSegueAction func showEditProfile(_ coder: NSCoder) -> EditProfileTableViewController? {
+        return EditProfileTableViewController(coder: coder, profile: model.profile!)
     }
     
     @IBAction func signOutButtonPressed() {
