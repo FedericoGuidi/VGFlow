@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF1701B92844187E008727C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1701B82844187E008727C2 /* User.swift */; };
 		DF1B9F69281ED16300260C88 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F68281ED16300260C88 /* StarRating.swift */; };
 		DF1B9F6B281EEF6000260C88 /* GameStatusRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */; };
 		DF1B9F6D281EFC1D00260C88 /* AddEditVideoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF1701B82844187E008727C2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DF1B9F68281ED16300260C88 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatusRadioButton.swift; sourceTree = "<group>"; };
 		DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditVideoGameViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				DF1B9F702821A3BD00260C88 /* BacklogEntry.swift */,
 				DF1B9F7628283DD300260C88 /* UpcomingGame.swift */,
 				DFBEE36B2829877900AB39F9 /* TrendingGame.swift */,
+				DF1701B82844187E008727C2 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				DF23BFA728157310006CF405 /* VideoGameCard.swift in Sources */,
 				DF23BFA528157132006CF405 /* IconSectionCollectionReusableView.swift in Sources */,
 				DF23BFAB2815BD51006CF405 /* SectionCollectionReusableView.swift in Sources */,
+				DF1701B92844187E008727C2 /* User.swift in Sources */,
 				DF1B9F752828385800260C88 /* TrendingGameCollectionViewCell.swift in Sources */,
 				DF23BF3928116302006CF405 /* APIRequest.swift in Sources */,
 				DF23BFBF281982AD006CF405 /* PlatformCollectionViewCell.swift in Sources */,

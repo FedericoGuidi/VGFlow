@@ -11,11 +11,11 @@ private let reuseIdentifier = "Cell"
 
 class ProfileCollectionViewController: UICollectionViewController {
 
-    
-    
     var profileRequestTask: Task<Void, Never>? = nil
+    var userRequestTask: Task<Void, Never>? = nil
     deinit {
         profileRequestTask?.cancel()
+        userRequestTask?.cancel()
     }
     
     typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section, ViewModel.Item>
@@ -59,6 +59,7 @@ class ProfileCollectionViewController: UICollectionViewController {
     
     var model = Model()
     var dataSource: DataSourceType!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +91,15 @@ class ProfileCollectionViewController: UICollectionViewController {
             }
             
             profileRequestTask = nil
+        }
+        
+        userRequestTask?.cancel()
+        userRequestTask = Task {
+            if let user = try? await UserRequest().send() {
+                self.user = user
+            }
+            
+            userRequestTask = nil
         }
     }
     
@@ -182,7 +192,7 @@ class ProfileCollectionViewController: UICollectionViewController {
                 
                 let socialSection = NSCollectionLayoutSection(group: socialGroup)
                 socialSection.interGroupSpacing = 10
-                socialSection.orthogonalScrollingBehavior = .groupPaging
+                socialSection.orthogonalScrollingBehavior = .continuous
                 socialSection.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 20, bottom: 8, trailing: 20)
                 return socialSection
                 
@@ -228,9 +238,9 @@ class ProfileCollectionViewController: UICollectionViewController {
     
     @IBAction func modalDismissed(segue: UIStoryboardSegue) {
         guard segue.identifier == "addToBacklog" else { return }
-        let souceViewController = segue.source as! AddEditVideoGameViewController
+        let sourceViewController = segue.source as! AddEditVideoGameViewController
         
-        if let backlogEntry = souceViewController.backlogEntry {
+        if let backlogEntry = sourceViewController.backlogEntry {
             Task {
                 try? await BacklogEntryRequest(backlogEntry: backlogEntry).send()
                 updateProfile()
@@ -241,13 +251,24 @@ class ProfileCollectionViewController: UICollectionViewController {
     @IBAction func modalDismissedForDelete(segue: UIStoryboardSegue) {
         guard segue.identifier == "removeFromBacklog" else { return }
         
-        let souceViewController = segue.source as! AddEditVideoGameViewController
+        let sourceViewController = segue.source as! AddEditVideoGameViewController
         
-        if let videogame = souceViewController.videoGame {
+        if let videogame = sourceViewController.videoGame {
             Task {
                 try? await RemoveEntryRequest(videogameId: videogame.id).send()
                 updateProfile()
             }
+        }
+    }
+    
+    @IBAction func unwindToProfile(segue: UIStoryboardSegue) {
+        guard segue.identifier == "updateProfile" else { return }
+        
+        let sourceViewController = segue.source as! EditProfileTableViewController
+        
+        Task {
+            try? await UpdateProfileRequest(userData: sourceViewController.user).send()
+            updateProfile()
         }
     }
     
@@ -265,7 +286,7 @@ class ProfileCollectionViewController: UICollectionViewController {
     }
     
     @IBSegueAction func showEditProfile(_ coder: NSCoder) -> EditProfileTableViewController? {
-        return EditProfileTableViewController(coder: coder, profile: model.profile!)
+        return EditProfileTableViewController(coder: coder, user: self.user)
     }
     
     @IBAction func signOutButtonPressed() {

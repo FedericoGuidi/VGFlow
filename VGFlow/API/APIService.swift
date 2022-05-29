@@ -20,6 +20,21 @@ struct LoginRequest: APIRequest {
     }
 }
 
+struct UserRequest: APIRequest {
+    typealias Response = User
+    
+    var id: String?
+    var path: String { "/user" }
+    
+    var queryItems: [URLQueryItem]? {
+        if let id = id {
+            return [URLQueryItem(name: "id", value: id)]
+        } else {
+            return [URLQueryItem(name: "id", value: KeychainItem.currentUserIdentifier)]
+        }
+    }
+}
+
 struct ProfileRequest: APIRequest {
     typealias Response = Profile
     
@@ -145,5 +160,18 @@ struct RemoveEntryRequest: APIRequest {
         } else {
             return nil
         }
+    }
+}
+
+struct UpdateProfileRequest: APIRequest {
+    typealias Response = Void
+    
+    var path: String { "/user/update" }
+    var userData: User
+    var httpMethod: String? { "PUT" }
+    
+    var postData: Data? {
+        let encoder = JSONEncoder()
+        return try! encoder.encode(userData)
     }
 }

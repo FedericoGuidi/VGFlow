@@ -145,17 +145,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m7a-yY-A27">
-                                            <rect key="frame" x="8" y="12" width="101" height="20.5"/>
+                                            <rect key="frame" x="8" y="12" width="101" height="20"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="logo.xbox" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZOe-sb-TZo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="20.5" height="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="19.5"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ZOe-sb-TZo" secondAttribute="height" multiplier="1:1" id="E90-FA-acI"/>
+                                                        <constraint firstAttribute="height" constant="20" id="vk6-MQ-ICC"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSs-x3-MWW">
-                                                    <rect key="frame" x="28.5" y="0.0" width="72.5" height="20.5"/>
+                                                    <rect key="frame" x="28" y="0.0" width="73" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -562,7 +563,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Modifica profilo" id="rGp-U3-ffg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rLG-E3-MMi"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rLG-E3-MMi">
+                            <connections>
+                                <segue destination="KvV-ug-6bd" kind="unwind" identifier="updateProfile" unwindAction="unwindToProfileWithSegue:" id="zCb-FQ-lvc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bioTextField" destination="zXR-Bu-rYX" id="KKf-Mx-CDX"/>
@@ -574,6 +579,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYf-Fm-2g0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="KvV-ug-6bd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4331.884057971015" y="-519.64285714285711"/>
         </scene>
