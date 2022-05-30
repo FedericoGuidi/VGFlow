@@ -11,6 +11,7 @@ private let reuseIdentifier = "Cell"
 
 class TrendingViewController: UIViewController {
     //@IBOutlet var searchBarView: UIView!
+    let loader: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var upcomingTrendingRequestsTask: Task<Void, Never>? = nil
     deinit {
@@ -66,6 +67,8 @@ class TrendingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        createLoader()
+        
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.backgroundColor = .quaternarySystemFill
         tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
@@ -83,8 +86,15 @@ class TrendingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        loader.startAnimating()
         update()
+    }
+    
+    func createLoader() {
+        loader.center = self.view.center
+        loader.hidesWhenStopped = true
+        loader.style = UIActivityIndicatorView.Style.large
+        view.addSubview(loader)
     }
     
     func update() {
@@ -96,6 +106,7 @@ class TrendingViewController: UIViewController {
             if let upcomingGames = try? await UpcomingGamesRequest().send() {
                 self.model.upcomingGames = upcomingGames
             }
+            loader.stopAnimating()
             self.updateCollectionView()
             upcomingTrendingRequestsTask = nil
         }
@@ -273,7 +284,7 @@ extension TrendingViewController: UISearchBarDelegate {
         
         Task {
             do {
-                let videogames = try await SearchVideoGameRequest(query: searchBar.text).send()
+                let videogames = try await SearchVideoGameRequest(search: Search(value: searchBar.text!)).send()
                 
                 searchResults = videogames
                 

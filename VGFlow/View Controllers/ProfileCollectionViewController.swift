@@ -11,6 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class ProfileCollectionViewController: UICollectionViewController {
 
+    let loader: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var profileRequestTask: Task<Void, Never>? = nil
     var userRequestTask: Task<Void, Never>? = nil
     deinit {
@@ -64,6 +66,7 @@ class ProfileCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.contentInsetAdjustmentBehavior = .always
+        createLoader()
         
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
@@ -76,6 +79,7 @@ class ProfileCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loader.startAnimating()
         
         if KeychainItem.currentUserIdentifier != "" {
             updateProfile()
@@ -88,6 +92,7 @@ class ProfileCollectionViewController: UICollectionViewController {
             if let profile = try? await ProfileRequest().send() {
                 self.model.profile = profile
                 self.updateCollectionView()
+                loader.stopAnimating()
             }
             
             profileRequestTask = nil
@@ -101,6 +106,13 @@ class ProfileCollectionViewController: UICollectionViewController {
             
             userRequestTask = nil
         }
+    }
+    
+    func createLoader() {
+        loader.center = self.view.center
+        loader.hidesWhenStopped = true
+        loader.style = UIActivityIndicatorView.Style.large
+        view.addSubview(loader)
     }
     
     func updateCollectionView() {

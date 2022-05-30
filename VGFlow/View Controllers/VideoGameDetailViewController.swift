@@ -69,6 +69,8 @@ class VideoGameDetailViewController: UIViewController {
     var videogame: VideoGame?
     var videogameDetails: VideoGameDetails?
     
+    let loader: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     enum Source {
         case videoGameCard(_ videogame: VideoGameCard)
         case upcomingGame(_ videogame: UpcomingGame)
@@ -95,6 +97,7 @@ class VideoGameDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createLoader()
         setupView()
     }
     
@@ -116,6 +119,8 @@ class VideoGameDetailViewController: UIViewController {
         gameStatusStackView.layer.cornerRadius = gameStatusStackView.bounds.height / 2
         gameTimeStackView.layer.cornerRadius = gameTimeStackView.bounds.height / 2
         
+        loader.startAnimating()
+        
         videoGameDetailRequestTask = Task {
             do {
                 let videogame = try await VideoGameRequest(id: videogameCard.id).send()
@@ -127,6 +132,13 @@ class VideoGameDetailViewController: UIViewController {
             
             videoGameDetailRequestTask = nil
         }
+    }
+    
+    func createLoader() {
+        loader.center = self.view.center
+        loader.hidesWhenStopped = true
+        loader.style = UIActivityIndicatorView.Style.large
+        view.addSubview(loader)
     }
 
     func updateDetails(with videogame: VideoGame) {
@@ -145,16 +157,10 @@ class VideoGameDetailViewController: UIViewController {
             if let details = try? await VideoGameDetailsRequest(videogameId: videogame.id).send() {
                 self.videogameDetails = details
                 updateRatingsDetails(with: details)
+                loader.stopAnimating()
             }
             videoGameUserDetailsRequestTask = nil
         }
-        
-        /*var company: String = ""
-        if let publisherAndDeveloper = videogame.involvedCompanies?.first(where: { $0.developer && $0.publisher })?.company.name {
-            company = publisherAndDeveloper
-        } else if let developer = videogame.involvedCompanies?.first(where: { $0.developer })?.company.name {
-            company = developer
-        }*/
         
         if let companies = videogame.involvedCompanies {
             developersLabel.text = companies.filter { $0.developer }.map { $0.company.name }.joined(separator: ", ")

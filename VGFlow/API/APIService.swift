@@ -71,15 +71,13 @@ struct SearchVideoGameRequest: APIRequest {
     typealias Response = [VideoGameSearch]
     
     var path: String { "/videogames/search"}
-    var query: String?
+    var search: Search
     
-    var queryItems: [URLQueryItem]? {
-        if let query = query {
-            return [URLQueryItem(name: "search", value: query)]
-        } else {
-            return nil
-        }
+    var postData: Data? {
+        let encoder = JSONEncoder()
+        return try! encoder.encode(search)
     }
+    
 }
 
 struct VideoGameDetailsRequest: APIRequest {

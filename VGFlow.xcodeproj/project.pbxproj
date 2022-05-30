@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF1701B92844187E008727C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1701B82844187E008727C2 /* User.swift */; };
+		DF1701BB284532BE008727C2 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1701BA284532BE008727C2 /* Search.swift */; };
 		DF1B9F69281ED16300260C88 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F68281ED16300260C88 /* StarRating.swift */; };
 		DF1B9F6B281EEF6000260C88 /* GameStatusRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */; };
 		DF1B9F6D281EFC1D00260C88 /* AddEditVideoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		DF1701B82844187E008727C2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DF1701BA284532BE008727C2 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		DF1B9F68281ED16300260C88 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatusRadioButton.swift; sourceTree = "<group>"; };
 		DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditVideoGameViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				DF1B9F7628283DD300260C88 /* UpcomingGame.swift */,
 				DFBEE36B2829877900AB39F9 /* TrendingGame.swift */,
 				DF1701B82844187E008727C2 /* User.swift */,
+				DF1701BA284532BE008727C2 /* Search.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				DF1EC29B280B36BF00829004 /* SceneDelegate.swift in Sources */,
 				DFBEE36C2829877900AB39F9 /* TrendingGame.swift in Sources */,
 				DF23BF11280F3E54006CF405 /* Profile.swift in Sources */,
+				DF1701BB284532BE008727C2 /* Search.swift in Sources */,
 				DF1B9F6B281EEF6000260C88 /* GameStatusRadioButton.swift in Sources */,
 				DF1B9F712821A3BD00260C88 /* BacklogEntry.swift in Sources */,
 				DF23BFA92815BD09006CF405 /* SupplementaryItem.swift in Sources */,
