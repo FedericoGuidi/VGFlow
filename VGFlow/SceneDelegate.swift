@@ -25,9 +25,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 break // The Apple ID credential is valid.
             case .revoked, .notFound:
                 // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
+                #if DEBUG
+                try? KeychainItem(service: "com.federicoguidi.VGFlow", account: "bearer").saveItem("eyJraWQiOiJXNldjT0tCIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2FwcGxlaWQuYXBwbGUuY29tIiwiYXVkIjoiY29tLmZlZGVyaWNvZ3VpZGkuVkdGbG93IiwiZXhwIjoxNjUwNTcxMjE4LCJpYXQiOjE2NTA0ODQ4MTgsInN1YiI6IjAwMTMwOS5iY2E2YTdjYWU0MGM0ODE1OTk1ZDE5NTIyZmRkZTVhMC4xNTM3IiwiYXRfaGFzaCI6IllTeTZZQnhUaWhwcmQ2aUJFRVNaX0EiLCJlbWFpbCI6InFjcmNqcndodGNAcHJpdmF0ZXJlbGF5LmFwcGxlaWQuY29tIiwiZW1haWxfdmVyaWZpZWQiOiJ0cnVlIiwiaXNfcHJpdmF0ZV9lbWFpbCI6InRydWUiLCJhdXRoX3RpbWUiOjE2NTA0ODQ3NjksIm5vbmNlX3N1cHBvcnRlZCI6dHJ1ZX0.ltJ_u_OlOColyG5i9tCKMs4etQwcu-eII231aPApMA1IPcV2NKh8uVhVF-7GRiukqWtj2zk2l_NQG1X8qPfGI88Vl1Tiql3nuW3NWWbpLSVQWHtIm5w7MIbY3jaG3HyADVqZG-nSYR-lVDnzSfXhOqxpNoIpJutOP_-J7Ekyfch1x8EPgwGB_8FXWfaHcdgqa5I5YVcFM1UnNVOPkcLqea9W0BlDzw1IP7GxVJx7N81BK_vpWoCgE9KGBmnGVeaRD2yCg2fG55LrBLzii8kFY-umCG1p6XFwYCRG69KSPDe-b7gnDxYsz5dOhPhABgYS7ybABwzVelFBBfbuC3ED4A")
+                try? KeychainItem(service: "com.federicoguidi.VGFlow", account: "userIdentifier").saveItem("001309.bca6a7cae40c4815995d19522fdde5a0.1537")
+                #else
                 DispatchQueue.main.async {
                     self.window?.rootViewController?.showLoginViewController()
                 }
+                #endif
             default:
                 break
             }

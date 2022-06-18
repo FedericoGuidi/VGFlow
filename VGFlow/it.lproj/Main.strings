@@ -1,0 +1,276 @@
+
+/* Class = "UILabel"; text = "Piattaforme"; ObjectID = "0uW-FR-HgT"; */
+"0uW-FR-HgT.text" = "Piattaforme";
+
+/* Class = "UILabel"; text = "Genere Label"; ObjectID = "2Hv-5p-QNP"; */
+"2Hv-5p-QNP.text" = "Genere Label";
+
+/* Class = "UIButton"; configuration.title = "Non finito"; ObjectID = "2df-UW-cl6"; */
+"2df-UW-cl6.configuration.title" = "Non finito";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2df-UW-cl6"; */
+"2df-UW-cl6.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Genres"; ObjectID = "2me-cx-tx4"; */
+"2me-cx-tx4.text" = "Genres";
+
+/* Class = "UITabBarItem"; title = "Trending"; ObjectID = "4D1-Dp-VBw"; */
+"4D1-Dp-VBw.title" = "Trending";
+
+/* Class = "UITextField"; placeholder = "Nintendo Switch Online"; ObjectID = "4Xt-s9-Omy"; */
+"4Xt-s9-Omy.placeholder" = "Nintendo Switch Online";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5Bi-Kg-BPc"; */
+"5Bi-Kg-BPc.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Developers"; ObjectID = "6CY-Dm-vKA"; */
+"6CY-Dm-vKA.text" = "Developers";
+
+/* Class = "UIButton"; configuration.title = "Finito"; ObjectID = "6eA-cH-q2X"; */
+"6eA-cH-q2X.configuration.title" = "Finito";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6eA-cH-q2X"; */
+"6eA-cH-q2X.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Publishing"; ObjectID = "6wc-Kz-vJK"; */
+"6wc-Kz-vJK.text" = "Publishing";
+
+/* Class = "UIButton"; configuration.title = "Completato"; ObjectID = "99z-Rc-xlY"; */
+"99z-Rc-xlY.configuration.title" = "Completato";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "99z-Rc-xlY"; */
+"99z-Rc-xlY.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "LONGEVITÀ"; ObjectID = "C65-oC-qvf"; */
+"C65-oC-qvf.text" = "LONGEVITÀ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CK4-tn-bi4"; */
+"CK4-tn-bi4.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Now Playing"; ObjectID = "EAi-d3-eYx"; */
+"EAi-d3-eYx.text" = "Now Playing";
+
+/* Class = "UITextField"; placeholder = "Xbox"; ObjectID = "EnC-pE-Nqm"; */
+"EnC-pE-Nqm.placeholder" = "Xbox";
+
+/* Class = "UITextField"; placeholder = "Ore..."; ObjectID = "Ezn-G3-oZz"; */
+"Ezn-G3-oZz.placeholder" = "Ore...";
+
+/* Class = "UILabel"; text = "Genere più giocato"; ObjectID = "FUa-Ag-skz"; */
+"FUa-Ag-skz.text" = "Genere più giocato";
+
+/* Class = "UITableViewSection"; headerTitle = "Bio"; ObjectID = "Gdt-hc-Csp"; */
+"Gdt-hc-Csp.headerTitle" = "Bio";
+
+/* Class = "UILabel"; text = "Trama"; ObjectID = "HOv-9R-Q6z"; */
+"HOv-9R-Q6z.text" = "Trama";
+
+/* Class = "UILabel"; text = "Summary"; ObjectID = "IbQ-9s-2s3"; */
+"IbQ-9s-2s3.text" = "Summary";
+
+/* Class = "UILabel"; text = "GAMEPLAY"; ObjectID = "Ibt-ei-Xwd"; */
+"Ibt-ei-Xwd.text" = "GAMEPLAY";
+
+/* Class = "UILabel"; text = "LEVEL DESIGN"; ObjectID = "Ijn-5g-IlZ"; */
+"Ijn-5g-IlZ.text" = "LEVEL DESIGN";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "Ikd-zu-Ves"; */
+"Ikd-zu-Ves.text" = "100%";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JKa-85-buX"; */
+"JKa-85-buX.text" = "Label";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "KTC-Qd-luQ"; */
+"KTC-Qd-luQ.text" = "100%";
+
+/* Class = "UITableViewSection"; headerTitle = "Nome"; ObjectID = "L0e-7c-Gki"; */
+"L0e-7c-Gki.headerTitle" = "Nome";
+
+/* Class = "UILabel"; text = "Tempo di gioco"; ObjectID = "Mkr-JM-IVx"; */
+"Mkr-JM-IVx.text" = "Tempo di gioco";
+
+/* Class = "UITextField"; placeholder = "PlayStation"; ObjectID = "OQY-LX-XID"; */
+"OQY-LX-XID.placeholder" = "PlayStation";
+
+/* Class = "UIButton"; configuration.title = "Elimina dalla libreria"; ObjectID = "OUj-Nw-jmb"; */
+"OUj-Nw-jmb.configuration.title" = "Elimina dalla libreria";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "OUj-Nw-jmb"; */
+"OUj-Nw-jmb.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Voto utenti:"; ObjectID = "Olc-HD-Prv"; */
+"Olc-HD-Prv.text" = "Voto utenti:";
+
+/* Class = "UILabel"; text = "123"; ObjectID = "PIG-YX-v13"; */
+"PIG-YX-v13.text" = "123";
+
+/* Class = "UILabel"; text = "VideoGame name"; ObjectID = "RJn-JC-IXu"; */
+"RJn-JC-IXu.text" = "VideoGame name";
+
+/* Class = "UILabel"; text = "Descrizione"; ObjectID = "Rhw-YT-Enq"; */
+"Rhw-YT-Enq.text" = "Descrizione";
+
+/* Class = "UILabel"; text = "VideoGame Name"; ObjectID = "U6p-CY-45U"; */
+"U6p-CY-45U.text" = "VideoGame Name";
+
+/* Class = "UILabel"; text = "VideoGame storyline"; ObjectID = "UMc-5w-bel"; */
+"UMc-5w-bel.text" = "VideoGame storyline";
+
+/* Class = "UILabel"; text = "VGFlow"; ObjectID = "Ucs-CA-HoX"; */
+"Ucs-CA-HoX.text" = "VGFlow";
+
+/* Class = "UILabel"; text = "Release date"; ObjectID = "VHW-Tk-P7a"; */
+"VHW-Tk-P7a.text" = "Release date";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "VTu-FL-59y"; */
+"VTu-FL-59y.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Vp1-fV-mBi"; */
+"Vp1-fV-mBi.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Giocato per X ore"; ObjectID = "Wvf-Nc-TVO"; */
+"Wvf-Nc-TVO.text" = "Giocato per X ore";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Y0i-aP-9Fn"; */
+"Y0i-aP-9Fn.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Platforms"; ObjectID = "YuD-EQ-6u7"; */
+"YuD-EQ-6u7.text" = "Platforms";
+
+/* Class = "UILabel"; text = "Finito"; ObjectID = "ZAl-qR-WvT"; */
+"ZAl-qR-WvT.text" = "Finito";
+
+/* Class = "UILabel"; text = "I.A."; ObjectID = "ZeF-sb-BHE"; */
+"ZeF-sb-BHE.text" = "I.A.";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "Zrb-VU-peK"; */
+"Zrb-VU-peK.text" = "100%";
+
+/* Class = "UILabel"; text = "Info"; ObjectID = "aSs-x3-MWW"; */
+"aSs-x3-MWW.text" = "Info";
+
+/* Class = "UILabel"; text = "Quante ore hai giocato?"; ObjectID = "ac6-Tz-lGd"; */
+"ac6-Tz-lGd.text" = "Quante ore hai giocato?";
+
+/* Class = "UILabel"; text = "STORIA"; ObjectID = "bGH-Y8-mK9"; */
+"bGH-Y8-mK9.text" = "STORIA";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bYG-sJ-1fF"; */
+"bYG-sJ-1fF.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Senza fine"; ObjectID = "bqI-nw-VbK"; */
+"bqI-nw-VbK.configuration.title" = "Senza fine";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bqI-nw-VbK"; */
+"bqI-nw-VbK.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Profile Name"; ObjectID = "cj2-cr-RkD"; */
+"cj2-cr-RkD.text" = "Profile Name";
+
+/* Class = "UILabel"; text = "GRAFICA"; ObjectID = "cjb-Na-EZy"; */
+"cjb-Na-EZy.text" = "GRAFICA";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dWM-6M-ufd"; */
+"dWM-6M-ufd.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "videogiochi"; ObjectID = "egu-tn-st6"; */
+"egu-tn-st6.text" = "videogiochi";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "emx-0u-uX0"; */
+"emx-0u-uX0.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "123"; ObjectID = "fol-n9-7Mc"; */
+"fol-n9-7Mc.text" = "123";
+
+/* Class = "UILabel"; text = "Data uscita"; ObjectID = "gYW-v1-TF2"; */
+"gYW-v1-TF2.text" = "Data uscita";
+
+/* Class = "UILabel"; text = "A che punto sei?"; ObjectID = "gf8-nx-7Lc"; */
+"gf8-nx-7Lc.text" = "A che punto sei?";
+
+/* Class = "UILabel"; text = "VideoGame description"; ObjectID = "gvQ-mp-EqC"; */
+"gvQ-mp-EqC.text" = "VideoGame description";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "gyV-Wh-XfQ"; */
+"gyV-Wh-XfQ.text" = "100%";
+
+/* Class = "UILabel"; text = "Ore di gioco"; ObjectID = "h5a-a5-pot"; */
+"h5a-a5-pot.text" = "Ore di gioco";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "hS8-qv-Ayo"; */
+"hS8-qv-Ayo.text" = "100%";
+
+/* Class = "UILabel"; text = "Sviluppato da"; ObjectID = "kEo-4o-QOn"; */
+"kEo-4o-QOn.text" = "Sviluppato da";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "kKO-jN-xZt"; */
+"kKO-jN-xZt.text" = "100%";
+
+/* Class = "UILabel"; text = "FISICA"; ObjectID = "mFt-0M-u1c"; */
+"mFt-0M-u1c.text" = "FISICA";
+
+/* Class = "UIButton"; configuration.title = "Salva nella libreria"; ObjectID = "my3-Ud-8mX"; */
+"my3-Ud-8mX.configuration.title" = "Salva nella libreria";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "my3-Ud-8mX"; */
+"my3-Ud-8mX.normalTitle" = "Button";
+
+/* Class = "UITableViewSection"; headerTitle = "Social"; ObjectID = "na5-4S-ZSN"; */
+"na5-4S-ZSN.headerTitle" = "Social";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "oL7-nj-cE3"; */
+"oL7-nj-cE3.text" = "100%";
+
+/* Class = "UILabel"; text = "Pubblicato da"; ObjectID = "pzZ-e1-7eo"; */
+"pzZ-e1-7eo.text" = "Pubblicato da";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "qB5-Qd-u3W"; */
+"qB5-Qd-u3W.text" = "100%";
+
+/* Class = "UIButton"; configuration.title = "Aggiungi alla libreria"; ObjectID = "qVy-vK-noc"; */
+"qVy-vK-noc.configuration.title" = "Aggiungi alla libreria";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qqn-hI-jPw"; */
+"qqn-hI-jPw.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Modifica profilo"; ObjectID = "rGp-U3-ffg"; */
+"rGp-U3-ffg.title" = "Modifica profilo";
+
+/* Class = "UIButton"; configuration.title = "Non iniziato"; ObjectID = "rSh-rd-LAg"; */
+"rSh-rd-LAg.configuration.title" = "Non iniziato";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "rSh-rd-LAg"; */
+"rSh-rd-LAg.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "MUSICA"; ObjectID = "roW-vb-8Y4"; */
+"roW-vb-8Y4.text" = "MUSICA";
+
+/* Class = "UITabBarItem"; title = "Profilo"; ObjectID = "sKj-P2-zcf"; */
+"sKj-P2-zcf.title" = "Profilo";
+
+/* Class = "UILabel"; text = "Mario Strikers: Battle League with Sonic & Knuckles"; ObjectID = "tg9-BN-Jhj"; */
+"tg9-BN-Jhj.text" = "Mario Strikers: Battle League with Sonic & Knuckles";
+
+/* Class = "UILabel"; text = "Bio"; ObjectID = "uXX-2z-Iwl"; */
+"uXX-2z-Iwl.text" = "Bio";
+
+/* Class = "UITextField"; placeholder = "Steam"; ObjectID = "xfX-co-sPT"; */
+"xfX-co-sPT.placeholder" = "Steam";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "yBC-QZ-pV9"; */
+"yBC-QZ-pV9.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Il mio backlog"; ObjectID = "yDY-TA-8Ja"; */
+"yDY-TA-8Ja.text" = "Il mio backlog";
+
+/* Class = "UILabel"; text = "Aggiungi ai preferiti"; ObjectID = "yQ0-Mw-cLS"; */
+"yQ0-Mw-cLS.text" = "Aggiungi ai preferiti";
+
+/* Class = "UIButton"; configuration.title = "Abbandonato"; ObjectID = "ydY-9M-GPn"; */
+"ydY-9M-GPn.configuration.title" = "Abbandonato";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ydY-9M-GPn"; */
+"ydY-9M-GPn.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "zm0-1K-0XO"; */
+"zm0-1K-0XO.text" = "100%";

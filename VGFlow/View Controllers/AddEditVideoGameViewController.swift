@@ -37,11 +37,22 @@ class AddEditVideoGameViewController: UIViewController {
     }
     
     func setupView() {
+        self.hideKeyboardWhenTappedAround()
+        
         removeFromBacklogButton.isHidden = true
         self.isModalInPresentation = true
         self.navigationItem.backBarButtonItem?.title = ""
         nowPlayingLabel.font = FontKit.roundedFont(ofSize: 20, weight: .medium)
         starredLabel.font = FontKit.roundedFont(ofSize: 20, weight: .medium)
+        
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                            target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        hoursTextField.inputAccessoryView = keyboardToolbar
         
         if let videoGameDetails = videoGameDetails {
             if let hours = videoGameDetails.hours,

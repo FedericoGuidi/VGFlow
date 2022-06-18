@@ -1533,6 +1533,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addToLibraryButton" destination="qVy-vK-noc" id="UYY-i8-MJj"/>
+                        <outlet property="averageStarRatingIcon" destination="PnR-Yy-T23" id="roE-S6-lcY"/>
                         <outlet property="averageStarRatingLabel" destination="Fqh-f6-PKH" id="KW9-CB-I8N"/>
                         <outlet property="averageStarRatingStackView" destination="kFc-Eh-LEi" id="Ffa-NS-scw"/>
                         <outlet property="contentView" destination="VZe-01-nOl" id="Nql-DO-3Yr"/>
@@ -1567,7 +1568,9 @@
                         <outlet property="starRatingView" destination="Dvw-Sl-s8q" id="ngE-Du-aia"/>
                         <outlet property="videoGameNameLabel" destination="RJn-JC-IXu" id="mtq-QO-9XE"/>
                         <outlet property="videoGameStorylineLabel" destination="UMc-5w-bel" id="8CK-zX-XXB"/>
+                        <outlet property="videoGameStorylineTitleLabel" destination="HOv-9R-Q6z" id="VOl-yZ-sQ7"/>
                         <outlet property="videoGameSummaryLabel" destination="gvQ-mp-EqC" id="NZH-8Q-m4C"/>
+                        <outlet property="videoGameSummaryTitleLabel" destination="Rhw-YT-Enq" id="A1R-bt-NpX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAo-Wx-DdO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1839,7 +1842,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3gt-hq-L55"/>
+        <segue reference="KuD-7X-O6n"/>
         <segue reference="Ikm-TI-i1A"/>
     </inferredMetricsTieBreakers>
     <resources>

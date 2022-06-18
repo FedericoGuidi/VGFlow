@@ -62,6 +62,8 @@
 /* Begin PBXFileReference section */
 		DF1701B82844187E008727C2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DF1701BA284532BE008727C2 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		DF1701BC284662DB008727C2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
+		DF1701BD284662DB008727C2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DF1B9F68281ED16300260C88 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		DF1B9F6A281EEF6000260C88 /* GameStatusRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatusRadioButton.swift; sourceTree = "<group>"; };
 		DF1B9F6C281EFC1D00260C88 /* AddEditVideoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditVideoGameViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = DF1EC28C280B36BF00829004;
 			packageReferences = (
@@ -381,6 +384,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DF1EC29F280B36BF00829004 /* Base */,
+				DF1701BC284662DB008727C2 /* it */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -389,6 +393,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DF1EC2A4280B36C300829004 /* Base */,
+				DF1701BD284662DB008727C2 /* it */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -460,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -532,7 +539,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.federicoguidi.VGFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -563,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.federicoguidi.VGFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -21,12 +21,15 @@ class VideoGameDetailViewController: UIViewController {
     
     @IBOutlet var videoGameNameLabel: UILabel!
     @IBOutlet var coverArtImageView: UIImageView!
+    @IBOutlet var videoGameSummaryTitleLabel: UILabel!
     @IBOutlet var videoGameSummaryLabel: UILabel!
+    @IBOutlet var videoGameStorylineTitleLabel: UILabel!
     @IBOutlet var videoGameStorylineLabel: UILabel!
     @IBOutlet var contentView: UIView!
     @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var starRatingView: UIStarRatingView!
     @IBOutlet var averageStarRatingLabel: UILabel!
+    @IBOutlet weak var averageStarRatingIcon: UIImageView!
     @IBOutlet var averageStarRatingStackView: UIStackView!
     
     @IBOutlet var gameButtonsStackView: UIStackView!
@@ -175,8 +178,12 @@ class VideoGameDetailViewController: UIViewController {
         
         genresLabel.text = videogame.genres.map { $0.name }.joined(separator: ", ")
         
+        videoGameSummaryTitleLabel.isHidden = videogame.summary.isEmpty
         videoGameSummaryLabel.text = videogame.summary
+        
+        videoGameStorylineTitleLabel.isHidden = videogame.storyline.isEmpty
         videoGameStorylineLabel.text = videogame.storyline
+        
         contentView.setNeedsLayout()
         contentView.layoutIfNeeded()
     }
@@ -196,7 +203,8 @@ class VideoGameDetailViewController: UIViewController {
             gameButtonsStackView.setNeedsLayout()
             gameButtonsStackView.layoutIfNeeded()
             
-            navigationItem.rightBarButtonItems = [editButton, heartButton]
+            //navigationItem.rightBarButtonItems = [editButton, heartButton]
+            navigationItem.rightBarButtonItems = [editButton]
             
             self.gameStatusStackView.isHidden = false
             let image = self.gameStatusStackView.subviews[0] as! UIImageView
@@ -238,6 +246,10 @@ class VideoGameDetailViewController: UIViewController {
         
         if let averageStarRating = videogameDetails?.averageStarRating {
             averageStarRatingLabel.text = String(averageStarRating)
+            averageStarRatingIcon.isHidden = false
+        } else {
+            averageStarRatingIcon.isHidden = true
+            averageStarRatingLabel.text = "nessun voto"
         }
        
         gameplayLabel.text = PercentLabel(details.averageGameRating?.gameplay ?? 0)
